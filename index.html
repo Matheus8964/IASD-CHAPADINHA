@@ -1,99 +1,515 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="App RH">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <title>App RH</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0f172a"
+  >
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="Escala Distrital"
+  >
+
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="./icons/icon-192.png"
+  >
+
+  <title>
+    Escala Distrital - IASD Chapadinha
+  </title>
+
+
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; font-family: Arial, sans-serif; background: #0f172a; }
-    #app { width: 100%; height: 100%; position: relative; }
-    #siteFrame { width: 100%; height: 100%; border: 0; display: block; background: white; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+
+      margin: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      overflow: hidden;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      background:
+        #0f172a;
+
+    }
+
+
+    #app {
+
+      width: 100%;
+
+      height: 100%;
+
+      position: relative;
+
+    }
+
+
+    #siteFrame {
+
+      width: 100%;
+
+      height: 100%;
+
+      border: 0;
+
+      display: block;
+
+      background:
+        white;
+
+    }
+
+
+    /* ==========================================
+       TELA DE CARREGAMENTO
+       ========================================== */
+
     #loading {
-      position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 14px; background: #0f172a; color: white;
-      transition: opacity .25s ease;
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 10;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 14px;
+
+      background:
+        #0f172a;
+
+      color:
+        white;
+
+      transition:
+        opacity .25s ease;
+
     }
-    #loading.hidden { opacity: 0; pointer-events: none; }
-    .spinner { width: 38px; height: 38px; border: 4px solid rgba(255,255,255,.25); border-top-color: white; border-radius: 50%; animation: spin .8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+
+
+    #loading.hidden {
+
+      opacity: 0;
+
+      pointer-events: none;
+
+    }
+
+
+    .spinner {
+
+      width: 38px;
+
+      height: 38px;
+
+      border:
+        4px solid
+        rgba(255,255,255,.25);
+
+      border-top-color:
+        white;
+
+      border-radius:
+        50%;
+
+      animation:
+        spin .8s linear infinite;
+
+    }
+
+
+    @keyframes spin {
+
+      to {
+
+        transform:
+          rotate(360deg);
+
+      }
+
+    }
+
+
+    /* ==========================================
+       MENSAGEM OFFLINE
+       ========================================== */
+
     #offline {
-      display: none; position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 20;
-      padding: 12px 14px; border-radius: 12px; background: rgba(15,23,42,.95); color: white;
-      text-align: center; font-size: 14px;
+
+      display: none;
+
+      position: absolute;
+
+      left: 12px;
+
+      right: 12px;
+
+      bottom: 12px;
+
+      z-index: 20;
+
+      padding: 12px 14px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(15,23,42,.95);
+
+      color:
+        white;
+
+      text-align:
+        center;
+
+      font-size:
+        14px;
+
     }
+
+
+    /* ==========================================
+       BOTÃO INSTALAR
+       ========================================== */
+
     #install {
-      display: none; position: fixed; right: 16px; bottom: 16px; z-index: 30;
-      border: 0; border-radius: 999px; padding: 12px 18px; background: #2563eb; color: white;
-      font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.25); cursor: pointer;
+
+      display: none;
+
+      position: fixed;
+
+      right: 16px;
+
+      bottom: 16px;
+
+      z-index: 30;
+
+      border: 0;
+
+      border-radius: 999px;
+
+      padding: 12px 18px;
+
+      background:
+        #2563eb;
+
+      color:
+        white;
+
+      font-weight:
+        700;
+
+      box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.25);
+
+      cursor:
+        pointer;
+
     }
+
+
+    #install:active {
+
+      transform:
+        scale(.97);
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
+
+
   <main id="app">
+
+
+    <!-- ======================================
+         CARREGAMENTO
+         ====================================== -->
+
     <div id="loading">
+
       <div class="spinner"></div>
-      <strong>Carregando...</strong>
+
+      <strong>
+        Carregando Escala Distrital...
+      </strong>
+
     </div>
 
-   <iframe
-  id="siteFrame"
-  title="Sistema RH"
-  src="https://script.google.com/a/*/macros/s/AKfycbzHA32fnNDd117Uc1SrRCZpGzz0L8YkIQ144SUpckVJ9t3eEaEHIbJYq3b0Ashnr5QyzQ/exec"
-  allow="fullscreen; clipboard-read; clipboard-write"
-  referrerpolicy="strict-origin-when-cross-origin">
-</iframe>
 
-    <div id="offline">Sem conexão. </div>
-    <button id="install" type="button">Instalar aplicativo</button>
+    <!-- ======================================
+         SISTEMA PRINCIPAL
+         ====================================== -->
+
+    <iframe
+      id="siteFrame"
+      title="Escala Distrital IASD Chapadinha"
+      src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=login"
+      allow="fullscreen; clipboard-read; clipboard-write"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+
+
+    <!-- ======================================
+         OFFLINE
+         ====================================== -->
+
+    <div id="offline">
+
+      Sem conexão com a internet.
+
+    </div>
+
+
+    <!-- ======================================
+         INSTALAÇÃO
+         ====================================== -->
+
+    <button
+      id="install"
+      type="button">
+
+      Instalar aplicativo
+
+    </button>
+
+
   </main>
 
-  <script>
-    const frame = document.getElementById('siteFrame');
-    const loading = document.getElementById('loading');
-    const offline = document.getElementById('offline');
-    const installButton = document.getElementById('install');
 
-    frame.addEventListener('load', () => loading.classList.add('hidden'));
+  <script>
+
+
+    /* ==========================================
+       ELEMENTOS
+       ========================================== */
+
+    const frame =
+      document.getElementById(
+        'siteFrame'
+      );
+
+
+    const loading =
+      document.getElementById(
+        'loading'
+      );
+
+
+    const offline =
+      document.getElementById(
+        'offline'
+      );
+
+
+    const installButton =
+      document.getElementById(
+        'install'
+      );
+
+
+    /* ==========================================
+       ESCONDER CARREGAMENTO
+       ========================================== */
+
+    frame.addEventListener(
+      'load',
+      () => {
+
+        loading.classList.add(
+          'hidden'
+        );
+
+      }
+    );
+
+
+    /* ==========================================
+       INTERNET
+       ========================================== */
 
     function updateConnection() {
-      offline.style.display = navigator.onLine ? 'none' : 'block';
+
+      offline.style.display =
+        navigator.onLine
+          ? 'none'
+          : 'block';
+
     }
-    window.addEventListener('online', updateConnection);
-    window.addEventListener('offline', updateConnection);
+
+
+    window.addEventListener(
+      'online',
+      updateConnection
+    );
+
+
+    window.addEventListener(
+      'offline',
+      updateConnection
+    );
+
+
     updateConnection();
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(console.error);
-      });
+
+    /* ==========================================
+       SERVICE WORKER
+       ========================================== */
+
+    if (
+      'serviceWorker'
+      in navigator
+    ) {
+
+      window.addEventListener(
+        'load',
+        () => {
+
+          navigator.serviceWorker
+            .register('./sw.js')
+            .catch(
+              console.error
+            );
+
+        }
+      );
+
     }
 
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      deferredPrompt = event;
-      installButton.style.display = 'block';
-    });
 
-    installButton.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installButton.style.display = 'none';
-    });
+    /* ==========================================
+       INSTALAÇÃO PWA
+       ========================================== */
 
-    window.addEventListener('appinstalled', () => {
-      installButton.style.display = 'none';
-    });
+    let deferredPrompt =
+      null;
+
+
+    window.addEventListener(
+      'beforeinstallprompt',
+      event => {
+
+        event.preventDefault();
+
+        deferredPrompt =
+          event;
+
+        installButton.style.display =
+          'block';
+
+      }
+    );
+
+
+    /* ==========================================
+       CLICAR EM INSTALAR
+       ========================================== */
+
+    installButton.addEventListener(
+      'click',
+      async () => {
+
+        if (
+          !deferredPrompt
+        ) {
+
+          return;
+
+        }
+
+
+        deferredPrompt.prompt();
+
+
+        await deferredPrompt.userChoice;
+
+
+        deferredPrompt =
+          null;
+
+
+        installButton.style.display =
+          'none';
+
+      }
+    );
+
+
+    /* ==========================================
+       APLICATIVO INSTALADO
+       ========================================== */
+
+    window.addEventListener(
+      'appinstalled',
+      () => {
+
+        installButton.style.display =
+          'none';
+
+      }
+    );
+
+
   </script>
+
+
 </body>
+
 </html>
