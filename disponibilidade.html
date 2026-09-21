@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1,
+             maximum-scale=1,
+             viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#0f172a">
+
+<title>Disponibilidades - Escala Distrital</title>
+
+<style>
+
+/* =========================================
+   CONFIGURAÇÃO
+========================================= */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #f1f5f9;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.header {
+
+    height: 58px;
+
+    background: #0f172a;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 14px;
+
+    gap: 12px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.btn-voltar {
+
+    border: 0;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.btn-voltar:active {
+
+    transform: scale(.94);
+
+}
+
+
+.titulo {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   ÁREA DO IFRAME
+========================================= */
+
+.webview {
+
+    width: 100%;
+
+    height:
+        calc(
+            100vh
+            - 58px
+            - 68px
+            - env(safe-area-inset-bottom)
+        );
+
+    border: 0;
+
+    display: block;
+
+    background: white;
+}
+
+
+/* =========================================
+   BARRA INFERIOR
+========================================= */
+
+.bottom-nav {
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 68px;
+
+    padding:
+        6px
+        8px
+        calc(
+            6px
+            + env(safe-area-inset-bottom)
+        );
+
+    background: rgba(255,255,255,0.97);
+
+    border-top:
+        1px solid #e2e8f0;
+
+    box-shadow:
+        0 -5px 20px
+        rgba(15,23,42,.08);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    z-index: 100;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* =========================================
+   BOTÕES DA BARRA
+========================================= */
+
+.nav-button {
+
+    flex: 1;
+
+    max-width: 110px;
+
+    height: 58px;
+
+    border: 0;
+
+    background: transparent;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    color: #64748b;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        color .15s ease,
+        transform .15s ease;
+}
+
+
+.nav-button:active {
+
+    transform: scale(.93);
+
+}
+
+
+.nav-button.ativo {
+
+    color: #2563eb;
+
+    background: #eff6ff;
+
+}
+
+
+.nav-icon {
+
+    font-size: 21px;
+
+    line-height: 1;
+}
+
+
+.nav-text {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   DESTAQUE DO BOTÃO DE DISPONIBILIDADE
+========================================= */
+
+.nav-button.disponibilidade {
+
+    color: #2563eb;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 700px) {
+
+    .bottom-nav {
+
+        max-width: 620px;
+
+        left: 50%;
+
+        right: auto;
+
+        transform: translateX(-50%);
+
+        border-radius:
+            18px
+            18px
+            0
+            0;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     CABEÇALHO
+========================================= -->
+
+<header class="header">
+
+    <button
+        class="btn-voltar"
+        onclick="irParaHome()"
+        aria-label="Voltar"
+    >
+        ←
+    </button>
+
+    <div class="titulo">
+        Minhas Disponibilidades
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     SISTEMA DE DISPONIBILIDADE
+========================================= -->
+
+<iframe
+    id="webview"
+    class="webview"
+
+    src="https://script.google.com/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=disponibilidade"
+
+    allow="clipboard-read; clipboard-write"
+
+    loading="eager"
+
+></iframe>
+
+
+
+<!-- =========================================
+     BARRA INFERIOR
+========================================= -->
+
+<nav class="bottom-nav">
+
+
+    <!-- INÍCIO -->
+
+    <button
+        class="nav-button"
+        type="button"
+        onclick="irParaHome()"
+    >
+
+        <div class="nav-icon">
+            🏠
+        </div>
+
+        <div class="nav-text">
+            Início
+        </div>
+
+    </button>
+
+
+
+    <!-- DISPONIBILIDADE -->
+
+    <button
+        class="nav-button disponibilidade ativo"
+        type="button"
+        onclick="recarregarDisponibilidade()"
+    >
+
+        <div class="nav-icon">
+            📅
+        </div>
+
+        <div class="nav-text">
+            Disponibilidade
+        </div>
+
+    </button>
+
+
+
+    <!-- SOLICITAÇÕES -->
+
+    <button
+        class="nav-button"
+        type="button"
+        onclick="irParaSolicitacoes()"
+    >
+
+        <div class="nav-icon">
+            📩
+        </div>
+
+        <div class="nav-text">
+            Solicitações
+        </div>
+
+    </button>
+
+
+
+    <!-- MENU -->
+
+    <button
+        class="nav-button"
+        type="button"
+        onclick="irParaHome()"
+    >
+
+        <div class="nav-icon">
+            ☰
+        </div>
+
+        <div class="nav-text">
+            Menu
+        </div>
+
+    </button>
+
+
+</nav>
+
+
+
+<script>
+
+/* =========================================
+   IR PARA HOME
+========================================= */
+
+function irParaHome() {
+
+    const nome =
+        localStorage.getItem("nomeUsuario");
+
+
+    let url =
+        "./home.html";
+
+
+    if(nome) {
+
+        url +=
+            "?nome=" +
+            encodeURIComponent(nome);
+
+    }
+
+
+    window.location.href = url;
+
+}
+
+
+/* =========================================
+   RECARREGAR DISPONIBILIDADE
+========================================= */
+
+function recarregarDisponibilidade() {
+
+    const iframe =
+        document.getElementById("webview");
+
+
+    if(iframe) {
+
+        iframe.src =
+            "https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=index";
+
+    }
+
+}
+
+
+/* =========================================
+   SOLICITAÇÕES
+========================================= */
+
+function irParaSolicitacoes() {
+
+    let url =
+        "./solicitacoes.html";
+
+
+    const nome =
+        localStorage.getItem("nomeUsuario");
+
+
+    if(nome) {
+
+        url +=
+            "?nome=" +
+            encodeURIComponent(nome);
+
+    }
+
+
+    window.location.href =
+        url;
+
+}
+
+
+/* =========================================
+   RECEBER NOME PELA URL
+========================================= */
+
+function carregarUsuario() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const nome =
+        params.get("nome");
+
+
+    if(nome && nome.trim() !== "") {
+
+        localStorage.setItem(
+            "nomeUsuario",
+            nome.trim()
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   INICIALIZAÇÃO
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        carregarUsuario();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
