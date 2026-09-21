@@ -1,7 +1,7 @@
 {
-  "name": "App RH",
-  "short_name": "App RH",
-  "description": "Aplicativo interno RH",
+  "name": "Escala Distrital IASD Chapadinha",
+  "short_name": "Escala Distrital",
+  "description": "Aplicativo da Escala Distrital IASD Chapadinha",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
