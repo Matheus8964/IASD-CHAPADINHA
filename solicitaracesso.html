@@ -15,40 +15,58 @@
 
 <meta name="theme-color" content="#0f172a">
 
-<title>Liberação de Acesso - Escala Distrital</title>
+<title>Espaço para Criar Escalas</title>
+
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
+
     box-sizing: border-box;
+
 }
+
 
 html,
 body {
+
     margin: 0;
+
     padding: 0;
+
     width: 100%;
+
     height: 100%;
+
     overflow: hidden;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     background: #f1f5f9;
-}
-
-body {
-
-    padding-top: env(safe-area-inset-top);
-
-    padding-bottom: env(safe-area-inset-bottom);
 
 }
+
 
 /* =====================================================
    CABEÇALHO
 ===================================================== */
 
 .header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
 
     height: 58px;
 
@@ -64,29 +82,27 @@ body {
 
     gap: 12px;
 
-    position: relative;
-
-    z-index: 10;
+    z-index: 1000;
 
 }
 
+
 .btn-voltar {
-
-    border: 0;
-
-    background: rgba(255,255,255,0.12);
-
-    color: white;
 
     width: 42px;
 
     height: 42px;
 
+    border: 0;
+
     border-radius: 12px;
 
-    font-size: 22px;
+    background:
+        rgba(255,255,255,0.12);
 
-    cursor: pointer;
+    color: white;
+
+    font-size: 23px;
 
     display: flex;
 
@@ -94,13 +110,21 @@ body {
 
     justify-content: center;
 
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
 }
+
 
 .btn-voltar:active {
 
-    transform: scale(0.95);
+    transform:
+        scale(.94);
 
 }
+
 
 .titulo {
 
@@ -110,11 +134,12 @@ body {
 
 }
 
+
 /* =====================================================
-   ÁREA DO IFRAME
+   ÁREA PRINCIPAL
 ===================================================== */
 
-.webview {
+.conteudo {
 
     position: absolute;
 
@@ -122,22 +147,216 @@ body {
 
     left: 0;
 
+    right: 0;
+
+    bottom: 68px;
+
+    overflow-y: auto;
+
+    padding: 18px 14px 20px;
+
+}
+
+
+/* =====================================================
+   WEBVIEW
+===================================================== */
+
+.webview {
+
     width: 100%;
 
-    /*
-       58px = cabeçalho
-       68px = barra inferior
-    */
+    height: 420px;
 
-    height: calc(100vh - 126px);
+    min-height: 320px;
 
     border: 0;
+
+    border-radius: 16px;
 
     display: block;
 
     background: white;
 
+    box-shadow:
+        0 3px 12px
+        rgba(15,23,42,.08);
+
 }
+
+
+/* =====================================================
+   ÁREA DE ACESSO LIBERADO
+===================================================== */
+
+#acessoLiberado {
+
+    display: none;
+
+    margin-top: 14px;
+
+}
+
+
+.acesso-card {
+
+    width: 100%;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(15,23,42,.08);
+
+}
+
+
+.acesso-titulo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.acesso-icone {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: #dcfce7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    flex-shrink: 0;
+
+}
+
+
+.acesso-texto {
+
+    flex: 1;
+
+}
+
+
+.acesso-texto h3 {
+
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 17px;
+
+}
+
+
+.acesso-texto p {
+
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =====================================================
+   BOTÃO ACESSAR
+===================================================== */
+
+.btn-acessar {
+
+    width: 100%;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    padding: 15px;
+
+    margin-top: 8px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+.btn-acessar:active {
+
+    transform:
+        scale(.98);
+
+}
+
+
+/* =====================================================
+   MENSAGEM DE BLOQUEIO
+===================================================== */
+
+#mensagemBloqueado {
+
+    display: none;
+
+    margin-top: 14px;
+
+}
+
+
+.bloqueado-card {
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+}
+
 
 /* =====================================================
    BARRA INFERIOR
@@ -163,17 +382,20 @@ body {
 
     justify-content: space-around;
 
-    z-index: 9999;
+    z-index: 2000;
 
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom:
+        env(safe-area-inset-bottom);
 
     box-shadow:
-        0 -3px 12px rgba(0,0,0,0.18);
+        0 -3px 12px
+        rgba(0,0,0,.18);
 
 }
 
+
 /* =====================================================
-   BOTÕES DA BARRA
+   BOTÕES DO MENU
 ===================================================== */
 
 .nav-item {
@@ -202,11 +424,13 @@ body {
 
     cursor: pointer;
 
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:
+        transparent;
 
 }
 
-.nav-item .icone {
+
+.nav-item .icone-nav {
 
     font-size: 23px;
 
@@ -214,20 +438,24 @@ body {
 
 }
 
+
 .nav-item.ativo {
 
     color: white;
 
 }
 
+
 .nav-item:active {
 
-    transform: scale(0.94);
+    transform:
+        scale(.94);
 
 }
 
+
 /* =====================================================
-   AJUSTE PARA CELULARES
+   RESPONSIVO
 ===================================================== */
 
 @media (max-width: 480px) {
@@ -238,13 +466,30 @@ body {
 
     }
 
+
+    .conteudo {
+
+        padding:
+            14px 12px 20px;
+
+    }
+
+
+    .webview {
+
+        height: 430px;
+
+    }
+
+
     .nav-item {
 
         font-size: 10px;
 
     }
 
-    .nav-item .icone {
+
+    .nav-item .icone-nav {
 
         font-size: 22px;
 
@@ -256,7 +501,9 @@ body {
 
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      CABEÇALHO
@@ -269,26 +516,142 @@ body {
         onclick="irParaHome()"
         aria-label="Voltar"
     >
+
         ←
+
     </button>
 
+
     <div class="titulo">
-        Liberação de Acesso
+
+        Espaço para Criar Escalas
+
     </div>
 
 </header>
 
 
+
 <!-- =====================================================
-     SISTEMA DE TROCA
+     CONTEÚDO
 ===================================================== -->
 
-<iframe
-    class="webview"
-    src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=liberarescala"
-    allow="clipboard-read; clipboard-write"
-    loading="eager"
-></iframe>
+<main class="conteudo">
+
+
+    <!-- =================================================
+         APP SCRIPT
+    ================================================== -->
+
+    <iframe
+
+        id="webviewEscala"
+
+        class="webview"
+
+        src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=criarEscala"
+
+        allow="clipboard-read; clipboard-write"
+
+        loading="eager"
+
+    ></iframe>
+
+
+
+    <!-- =================================================
+         ACESSO LIBERADO
+    ================================================== -->
+
+    <div
+        id="acessoLiberado"
+    >
+
+        <div class="acesso-card">
+
+
+            <div class="acesso-titulo">
+
+
+                <div class="acesso-icone">
+
+                    🔓
+
+                </div>
+
+
+                <div class="acesso-texto">
+
+                    <h3>
+
+                        Acesso liberado
+
+                    </h3>
+
+
+                    <p>
+
+                        Seu usuário está autorizado
+                        para as funções de desenvolvimento
+                        de escalas.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+
+                type="button"
+
+                class="btn-acessar"
+
+                onclick="acessarFuncoesDesenvolvedor()"
+
+            >
+
+                Acessar funções de desenvolvimento
+                de escalas
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         BLOQUEADO
+    ================================================== -->
+
+    <div
+        id="mensagemBloqueado"
+    >
+
+        <div class="bloqueado-card">
+
+            🔒
+
+            <br>
+
+            Seu usuário ainda não possui
+            autorização para acessar as
+            funções de desenvolvimento
+            de escalas.
+
+        </div>
+
+    </div>
+
+
+</main>
+
 
 
 <!-- =====================================================
@@ -297,99 +660,260 @@ body {
 
 <nav class="bottom-nav">
 
+
+    <!-- INÍCIO -->
+
     <button
-        class="nav-item ativo"
+
+        class="nav-item"
+
         onclick="irParaHome()"
+
     >
 
-        <span class="icone">🏠</span>
+        <span class="icone-nav">
 
-        <span>Início</span>
+            🏠
+
+        </span>
+
+        <span>
+
+            Início
+
+        </span>
 
     </button>
 
 
+
+    <!-- DISPONIBILIDADE -->
+
     <button
+
         class="nav-item"
+
         onclick="irParaDisponibilidade()"
+
     >
 
-        <span class="icone">📅</span>
+        <span class="icone-nav">
 
-        <span>Disponibilidade</span>
+            📅
+
+        </span>
+
+        <span>
+
+            Disponibilidade
+
+        </span>
 
     </button>
 
 
+
+    <!-- SOLICITAÇÕES -->
+
     <button
+
         class="nav-item"
+
         onclick="irParaSolicitacoes()"
+
     >
 
-        <span class="icone">📩</span>
+        <span class="icone-nav">
 
-        <span>Solicitações</span>
+            📩
+
+        </span>
+
+        <span>
+
+            Solicitações
+
+        </span>
 
     </button>
 
+
+
+    <!-- MENU -->
 
     <button
-        class="nav-item"
+
+        class="nav-item ativo"
+
         onclick="irParaHome()"
+
     >
 
-        <span class="icone">☰</span>
+        <span class="icone-nav">
 
-        <span>Menu</span>
+            ☰
+
+        </span>
+
+        <span>
+
+            Menu
+
+        </span>
 
     </button>
+
 
 </nav>
+
 
 
 <script>
 
 /* =====================================================
-   NAVEGAÇÃO
+   USUÁRIO
+===================================================== */
+
+function obterDadosUsuario() {
+
+    const idUsuario =
+        localStorage.getItem(
+            "usuarioId"
+        ) || "";
+
+
+    const nome =
+        localStorage.getItem(
+            "nomeUsuario"
+        ) || "";
+
+
+    return {
+
+        idUsuario:
+            idUsuario,
+
+        nome:
+            nome
+
+    };
+
+}
+
+
+/* =====================================================
+   SALVAR USUÁRIO RECEBIDO PELA URL
+===================================================== */
+
+function carregarUsuarioDaURL() {
+
+    const parametros =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const idUsuario =
+        parametros.get(
+            "idUsuario"
+        );
+
+
+    const nome =
+        parametros.get(
+            "nome"
+        );
+
+
+    if (idUsuario) {
+
+        localStorage.setItem(
+            "usuarioId",
+            idUsuario
+        );
+
+    }
+
+
+    if (nome) {
+
+        localStorage.setItem(
+            "nomeUsuario",
+            nome
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   MONTAR URL
+===================================================== */
+
+function montarUrl(pagina) {
+
+    const usuario =
+        obterDadosUsuario();
+
+
+    let url =
+        "./" + pagina;
+
+
+    const parametros = [];
+
+
+    if (usuario.idUsuario) {
+
+        parametros.push(
+            "idUsuario=" +
+            encodeURIComponent(
+                usuario.idUsuario
+            )
+        );
+
+    }
+
+
+    if (usuario.nome) {
+
+        parametros.push(
+            "nome=" +
+            encodeURIComponent(
+                usuario.nome
+            )
+        );
+
+    }
+
+
+    if (
+        parametros.length > 0
+    ) {
+
+        url +=
+            "?" +
+            parametros.join("&");
+
+    }
+
+
+    return url;
+
+}
+
+
+/* =====================================================
+   HOME
 ===================================================== */
 
 function irParaHome() {
 
-    const idUsuario =
-        localStorage.getItem("usuarioId") || "";
-
-    const nome =
-        localStorage.getItem("nomeUsuario") || "";
-
-    let url = "./criarEscala.html";
-
-    const parametros = [];
-
-    if (idUsuario) {
-
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(idUsuario)
+    window.location.href =
+        montarUrl(
+            "home.html"
         );
-
-    }
-
-    if (nome) {
-
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(nome)
-        );
-
-    }
-
-    if (parametros.length > 0) {
-
-        url += "?" + parametros.join("&");
-
-    }
-
-    window.location.href = url;
 
 }
 
@@ -400,41 +924,10 @@ function irParaHome() {
 
 function irParaDisponibilidade() {
 
-    const idUsuario =
-        localStorage.getItem("usuarioId") || "";
-
-    const nome =
-        localStorage.getItem("nomeUsuario") || "";
-
-    let url = "./disponibilidade.html";
-
-    const parametros = [];
-
-    if (idUsuario) {
-
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(idUsuario)
+    window.location.href =
+        montarUrl(
+            "disponibilidade.html"
         );
-
-    }
-
-    if (nome) {
-
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(nome)
-        );
-
-    }
-
-    if (parametros.length > 0) {
-
-        url += "?" + parametros.join("&");
-
-    }
-
-    window.location.href = url;
 
 }
 
@@ -445,45 +938,271 @@ function irParaDisponibilidade() {
 
 function irParaSolicitacoes() {
 
-    const idUsuario =
-        localStorage.getItem("usuarioId") || "";
-
-    const nome =
-        localStorage.getItem("nomeUsuario") || "";
-
-    let url = "./solicitacoes.html";
-
-    const parametros = [];
-
-    if (idUsuario) {
-
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(idUsuario)
+    window.location.href =
+        montarUrl(
+            "solicitacoes.html"
         );
-
-    }
-
-    if (nome) {
-
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(nome)
-        );
-
-    }
-
-    if (parametros.length > 0) {
-
-        url += "?" + parametros.join("&");
-
-    }
-
-    window.location.href = url;
 
 }
 
+
+/* =====================================================
+   ACESSAR FUNÇÕES
+===================================================== */
+
+function acessarFuncoesDesenvolvedor() {
+
+    const usuario =
+        obterDadosUsuario();
+
+
+    /*
+     * A página de destino
+     * também deve verificar
+     * a autorização no servidor.
+     */
+
+    let url =
+        "./criacaoescala.html";
+
+
+    const parametros = [];
+
+
+    if (usuario.idUsuario) {
+
+        parametros.push(
+            "idUsuario=" +
+            encodeURIComponent(
+                usuario.idUsuario
+            )
+        );
+
+    }
+
+
+    if (usuario.nome) {
+
+        parametros.push(
+            "nome=" +
+            encodeURIComponent(
+                usuario.nome
+            )
+        );
+
+    }
+
+
+    if (
+        parametros.length > 0
+    ) {
+
+        url +=
+            "?" +
+            parametros.join("&");
+
+    }
+
+
+    window.location.href =
+        url;
+
+}
+
+
+/* =====================================================
+   RECEBER STATUS DO APP SCRIPT
+===================================================== */
+
+window.addEventListener(
+
+    "message",
+
+    function(event) {
+
+
+        /*
+         * Ignora mensagens sem conteúdo.
+         */
+
+        if (
+            !event.data
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+         * Só processa mensagens
+         * do nosso sistema.
+         */
+
+        if (
+            event.data.tipo !==
+            "STATUS_ACESSO_ESCALA"
+        ) {
+
+            return;
+
+        }
+
+
+        const status =
+            String(
+                event.data.status ||
+                ""
+            ).toLowerCase();
+
+
+        console.log(
+            "Status recebido do Apps Script:",
+            status
+        );
+
+
+        /* =============================================
+           UNBLOCK
+        ============================================== */
+
+        if (
+            status ===
+            "unblock"
+        ) {
+
+            mostrarAcessoLiberado();
+
+            return;
+
+        }
+
+
+        /* =============================================
+           BLOCK
+        ============================================== */
+
+        if (
+            status ===
+            "block"
+        ) {
+
+            mostrarAcessoBloqueado();
+
+            return;
+
+        }
+
+    }
+
+);
+
+
+/* =====================================================
+   MOSTRAR ACESSO LIBERADO
+===================================================== */
+
+function mostrarAcessoLiberado() {
+
+    const liberado =
+        document.getElementById(
+            "acessoLiberado"
+        );
+
+
+    const bloqueado =
+        document.getElementById(
+            "mensagemBloqueado"
+        );
+
+
+    if (liberado) {
+
+        liberado.style.display =
+            "block";
+
+    }
+
+
+    if (bloqueado) {
+
+        bloqueado.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   MOSTRAR BLOQUEADO
+===================================================== */
+
+function mostrarAcessoBloqueado() {
+
+    const liberado =
+        document.getElementById(
+            "acessoLiberado"
+        );
+
+
+    const bloqueado =
+        document.getElementById(
+            "mensagemBloqueado"
+        );
+
+
+    if (liberado) {
+
+        liberado.style.display =
+            "none";
+
+    }
+
+
+    if (bloqueado) {
+
+        bloqueado.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+window.addEventListener(
+
+    "load",
+
+    function() {
+
+        /*
+         * Primeiro salva os dados
+         * recebidos pela URL.
+         */
+
+        carregarUsuarioDaURL();
+
+
+        /*
+         * Inicialmente fica bloqueado.
+         *
+         * Só será liberado depois que
+         * o Apps Script enviar "unblock".
+         */
+
+        mostrarAcessoBloqueado();
+
+    }
+
+);
+
 </script>
+
 
 </body>
 
