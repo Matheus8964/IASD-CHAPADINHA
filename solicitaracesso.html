@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>Escala Distrital</title>
+<title>Liberação de Escala</title>
 
 <style>
 
@@ -22,17 +22,18 @@
 
 html,
 body {
-
     width: 100%;
     height: 100%;
-
     overflow: hidden;
-
     background: #0f172a;
-
 }
 
-iframe {
+#webviewEscala {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
 
     width: 100%;
     height: 100%;
@@ -52,8 +53,7 @@ iframe {
 
 
 <iframe
-    id="appFrame"
-    src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=login"
+    id="webviewEscala"
     allow="clipboard-read; clipboard-write"
     loading="eager">
 </iframe>
@@ -65,12 +65,12 @@ iframe {
    CONFIGURAÇÃO
 ===================================================== */
 
-const URL_LOGIN =
-    "https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=login";
+const URL_APPS_SCRIPT =
+    "https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=liberarescala";
 
 
 /* =====================================================
-   GARANTE QUE O LOGIN SEJA CARREGADO
+   CARREGAR
 ===================================================== */
 
 window.addEventListener(
@@ -79,13 +79,125 @@ window.addEventListener(
 
         const iframe =
             document.getElementById(
-                "appFrame"
+                "webviewEscala"
             );
 
-        if (!iframe) return;
+        if (!iframe) {
+            return;
+        }
+
+
+        /*
+         * Usuário vindo da URL do GitHub
+         */
+
+        const parametros =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const idURL =
+            parametros.get(
+                "idUsuario"
+            );
+
+
+        const nomeURL =
+            parametros.get(
+                "nome"
+            );
+
+
+        /*
+         * Salva no localStorage do GitHub
+         */
+
+        if (idURL) {
+
+            localStorage.setItem(
+                "usuarioId",
+                idURL
+            );
+
+        }
+
+
+        if (nomeURL) {
+
+            localStorage.setItem(
+                "nomeUsuario",
+                nomeURL
+            );
+
+        }
+
+
+        /*
+         * Recupera caso não tenha vindo
+         * pela URL.
+         */
+
+        const idUsuario =
+            idURL ||
+            localStorage.getItem(
+                "usuarioId"
+            ) ||
+            "";
+
+
+        const nome =
+            nomeURL ||
+            localStorage.getItem(
+                "nomeUsuario"
+            ) ||
+            "";
+
+
+        /*
+         * IMPORTANTE:
+         *
+         * A página do Apps Script também
+         * precisa receber o ID e o nome,
+         * pois o localStorage do GitHub
+         * é diferente do localStorage
+         * do Apps Script.
+         */
+
+        let url =
+            URL_APPS_SCRIPT;
+
+
+        if (idUsuario) {
+
+            url +=
+                "&idUsuario=" +
+                encodeURIComponent(
+                    idUsuario
+                );
+
+        }
+
+
+        if (nome) {
+
+            url +=
+                "&nome=" +
+                encodeURIComponent(
+                    nome
+                );
+
+        }
+
+
+        console.log(
+            "Abrindo tela de liberação:",
+            url
+        );
+
 
         iframe.src =
-            URL_LOGIN;
+            url;
 
     }
 );
