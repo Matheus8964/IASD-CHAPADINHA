@@ -15,7 +15,7 @@
 
 <meta name="theme-color" content="#0f172a">
 
-<title>Imprimir Escala - Escala Distrital</title>
+<title>Espaço para Criar Escalas</title>
 
 <style>
 
@@ -98,6 +98,8 @@ body {
 
     justify-content: center;
 
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 
@@ -118,7 +120,7 @@ body {
 
 
 /* =====================================================
-   ÁREA DO IFRAME
+   ÁREA DO APP SCRIPT
 ===================================================== */
 
 .webview {
@@ -133,7 +135,7 @@ body {
 
     /*
        58px = cabeçalho
-       68px = barra inferior
+       68px = menu inferior
     */
 
     height: calc(100vh - 126px);
@@ -240,7 +242,7 @@ body {
 
 
 /* =====================================================
-   AJUSTE PARA CELULARES
+   RESPONSIVO
 ===================================================== */
 
 @media (max-width: 480px) {
@@ -281,7 +283,7 @@ body {
 
     <button
         class="btn-voltar"
-        onclick="voltarCriarEscala()"
+        onclick="irParaHome()"
         aria-label="Voltar"
     >
         ←
@@ -290,7 +292,7 @@ body {
 
     <div class="titulo">
 
-        Imprimir minha escala
+        Espaço para Criar Escalas
 
     </div>
 
@@ -299,7 +301,7 @@ body {
 
 
 <!-- =====================================================
-     PÁGINA DE IMPRESSÃO
+     APP SCRIPT
 ===================================================== -->
 
 <iframe
@@ -402,7 +404,7 @@ body {
 <script>
 
 /* =====================================================
-   DADOS DO USUÁRIO
+   PEGAR DADOS DO USUÁRIO
 ===================================================== */
 
 function obterDadosUsuario() {
@@ -425,70 +427,7 @@ function obterDadosUsuario() {
 
 
 /* =====================================================
-   VOLTAR PARA A ÁREA DE CRIAÇÃO DE ESCALA
-===================================================== */
-
-function voltarCriarEscala() {
-
-    /*
-       Volta para a página de liberação/criação
-       de escala.
-
-       O usuário continua dentro do fluxo
-       de criação de escala.
-    */
-
-    const usuario =
-        obterDadosUsuario();
-
-
-    let url =
-        "./criar-escala.html";
-
-
-    const parametros = [];
-
-
-    if (usuario.idUsuario) {
-
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(
-                usuario.idUsuario
-            )
-        );
-
-    }
-
-
-    if (usuario.nome) {
-
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(
-                usuario.nome
-            )
-        );
-
-    }
-
-
-    if (parametros.length > 0) {
-
-        url +=
-            "?" +
-            parametros.join("&");
-
-    }
-
-
-    window.location.href = url;
-
-}
-
-
-/* =====================================================
-   INÍCIO
+   HOME
 ===================================================== */
 
 function irParaHome() {
@@ -675,9 +614,9 @@ window.addEventListener(
 
 
         /*
-           Caso tenha chegado pela URL,
-           mantém os dados do usuário.
-        */
+         * Se o usuário chegou diretamente
+         * pela URL, salva os dados localmente.
+         */
 
         if (idUsuario) {
 
