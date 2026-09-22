@@ -3,1259 +3,427 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
+<meta
     name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
-  >
+    content="width=device-width, initial-scale=1.0"
+>
 
-  <meta
-    name="theme-color"
-    content="#0f172a"
-  >
+<title>Liberação de Escala</title>
 
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
+<style>
 
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent"
-  >
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-  <meta
-    name="apple-mobile-web-app-title"
-    content="Escala Distrital"
-  >
+body{
 
-  <link
-    rel="manifest"
-    href="./manifest.json"
-  >
-
-  <link
-    rel="apple-touch-icon"
-    href="./icons/icon-192.png"
-  >
-
-  <title>
-    Escala Distrital - IASD Chapadinha
-  </title>
-
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-
-    html {
-
-      width: 100%;
-
-      min-height: 100%;
-
-      background:
-        #f1f5f9;
-
-    }
-
-
-    body {
-
-      margin: 0;
-
-      padding: 0;
-
-      width: 100%;
-
-      min-height: 100vh;
-
-      min-height: 100dvh;
-
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
+    font-family:
         Arial,
+        Helvetica,
         sans-serif;
 
-      background:
+    min-height:100vh;
+
+    background:
         linear-gradient(
-          160deg,
-          #0f172a 0%,
-          #172554 35%,
-          #f1f5f9 35.1%,
-          #f1f5f9 100%
+            135deg,
+            #0f172a,
+            #1e293b
         );
 
-      color:
-        #0f172a;
+    color:#fff;
 
-      overflow-x:
-        hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-      padding-top:
-        env(safe-area-inset-top);
+    padding:20px;
+}
 
-      padding-bottom:
-        env(safe-area-inset-bottom);
+/* =========================================
+   CONTAINER
+========================================= */
 
-      padding-left:
-        env(safe-area-inset-left);
+.container{
 
-      padding-right:
-        env(safe-area-inset-right);
+    width:100%;
+    max-width:430px;
 
-    }
+    background:rgba(255,255,255,0.08);
 
+    border:1px solid rgba(255,255,255,0.12);
 
-    button {
+    border-radius:24px;
 
-      font-family:
-        inherit;
+    padding:28px 22px;
 
-    }
+    backdrop-filter:blur(15px);
 
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35);
 
-    /* =========================================
-       CONTAINER
-    ========================================= */
+}
 
-    .app {
+/* =========================================
+   CABEÇALHO
+========================================= */
 
-      width: 100%;
+.icone{
 
-      max-width: 620px;
+    width:70px;
+    height:70px;
 
-      min-height: 100vh;
+    margin:0 auto 18px;
 
-      min-height: 100dvh;
+    border-radius:50%;
 
-      margin: 0 auto;
+    background:#2563eb;
 
-      padding:
-        24px
-        20px
-        calc(30px + env(safe-area-inset-bottom));
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-      position:
-        relative;
+    font-size:32px;
 
-    }
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.35);
 
+}
 
-    /* =========================================
-       CABEÇALHO
-    ========================================= */
+h1{
 
-    .header {
+    text-align:center;
 
-      color:
-        white;
+    font-size:24px;
 
-      padding:
-        8px
-        2px
-        30px;
+    margin-bottom:10px;
 
-    }
+}
 
+.subtitulo{
 
-    .header-top {
+    text-align:center;
 
-      display:
-        flex;
+    color:#cbd5e1;
 
-      align-items:
-        center;
+    font-size:14px;
 
-      justify-content:
-        space-between;
+    line-height:1.5;
 
-      gap:
-        15px;
+    margin-bottom:25px;
 
-    }
+}
 
+/* =========================================
+   USUÁRIO
+========================================= */
 
-    .brand {
+.usuario{
 
-      display:
-        flex;
+    background:rgba(255,255,255,0.06);
 
-      align-items:
-        center;
+    border-radius:15px;
 
-      gap:
-        13px;
+    padding:15px;
 
-    }
+    margin-bottom:20px;
 
+    text-align:center;
 
-    .logo {
+}
 
-      width:
-        52px;
+.usuario small{
 
-      height:
-        52px;
+    display:block;
 
-      min-width:
-        52px;
+    color:#94a3b8;
 
-      border-radius:
-        16px;
+    font-size:12px;
 
-      display:
-        flex;
+    margin-bottom:5px;
 
-      align-items:
-        center;
+}
 
-      justify-content:
-        center;
+.usuario strong{
 
-      background:
-        rgba(255,255,255,0.14);
+    font-size:17px;
 
-      border:
-        1px solid
-        rgba(255,255,255,0.18);
+}
 
-      backdrop-filter:
-        blur(10px);
+/* =========================================
+   STATUS
+========================================= */
 
-      -webkit-backdrop-filter:
-        blur(10px);
+.status{
 
-      font-size:
-        25px;
+    padding:15px;
 
-      box-shadow:
-        0 8px 25px
-        rgba(0,0,0,0.15);
+    border-radius:14px;
 
-    }
+    text-align:center;
 
+    font-size:14px;
 
-    .brand-text h1 {
+    line-height:1.5;
 
-      margin:
-        0;
+    margin-bottom:20px;
 
-      font-size:
-        23px;
+}
 
-      font-weight:
-        800;
+.status.verificando{
 
-      letter-spacing:
-        -0.5px;
+    background:rgba(59,130,246,0.15);
 
-    }
+    color:#93c5fd;
 
+}
 
-    .brand-text span {
+.status.sucesso{
 
-      display:
-        block;
+    background:rgba(34,197,94,0.15);
 
-      margin-top:
-        3px;
+    color:#86efac;
 
-      font-size:
-        12px;
+}
 
-      color:
-        rgba(255,255,255,0.68);
+.status.erro{
 
-    }
+    background:rgba(239,68,68,0.15);
 
+    color:#fca5a5;
 
-    /* =========================================
-       USUÁRIO
-    ========================================= */
+}
 
-    .user-card {
+/* =========================================
+   ÁREA DO CÓDIGO
+========================================= */
 
-      margin-top:
-        22px;
+#areaCodigo{
 
-      display:
-        flex;
+    display:none;
 
-      align-items:
-        center;
+}
 
-      gap:
-        13px;
+.label{
 
-      padding:
-        14px
-        16px;
+    display:block;
 
-      border-radius:
-        18px;
+    color:#cbd5e1;
 
-      background:
-        rgba(255,255,255,0.10);
+    font-size:14px;
 
-      border:
-        1px solid
-        rgba(255,255,255,0.13);
+    margin-bottom:8px;
 
-      backdrop-filter:
-        blur(12px);
+}
 
-      -webkit-backdrop-filter:
-        blur(12px);
+.inputCodigo{
 
-    }
+    width:100%;
 
+    height:54px;
 
-    .user-icon {
+    border:none;
 
-      width:
-        42px;
+    outline:none;
 
-      height:
-        42px;
+    border-radius:13px;
 
-      min-width:
-        42px;
+    background:#fff;
 
-      border-radius:
-        50%;
+    color:#0f172a;
 
-      display:
-        flex;
+    text-align:center;
 
-      align-items:
-        center;
+    font-size:25px;
 
-      justify-content:
-        center;
+    font-weight:bold;
 
-      background:
-        rgba(255,255,255,0.15);
+    letter-spacing:8px;
 
-      font-size:
-        20px;
+    margin-bottom:14px;
 
-    }
+}
 
+.inputCodigo:focus{
 
-    .user-info {
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,0.35);
 
-      min-width:
-        0;
+}
 
-      flex:
-        1;
+/* =========================================
+   BOTÕES
+========================================= */
 
-    }
+button{
 
+    width:100%;
 
-    .user-label {
+    height:50px;
 
-      font-size:
-        10px;
+    border:none;
 
-      text-transform:
-        uppercase;
+    border-radius:13px;
 
-      letter-spacing:
-        1px;
+    cursor:pointer;
 
-      color:
-        rgba(255,255,255,0.58);
+    font-size:15px;
 
-    }
+    font-weight:bold;
 
+    transition:0.2s;
 
-    .user-name {
+}
 
-      margin-top:
-        3px;
+button:active{
 
-      font-size:
-        15px;
+    transform:scale(0.98);
 
-      font-weight:
-        700;
+}
 
-      color:
-        white;
+.btnPrincipal{
 
-      white-space:
-        nowrap;
+    background:#2563eb;
 
-      overflow:
-        hidden;
+    color:#fff;
 
-      text-overflow:
-        ellipsis;
+}
 
-    }
+.btnPrincipal:hover{
 
+    background:#1d4ed8;
 
-    /* =========================================
-       CONTEÚDO
-    ========================================= */
+}
 
-    .content {
+.btnPrincipal:disabled{
 
-      background:
-        rgba(255,255,255,0.97);
+    opacity:0.5;
 
-      border-radius:
-        28px;
+    cursor:not-allowed;
 
-      padding:
-        22px
-        18px
-        20px;
+}
 
-      box-shadow:
-        0 20px 55px
-        rgba(15,23,42,0.16);
+/* =========================================
+   WHATSAPP
+========================================= */
 
-      border:
-        1px solid
-        rgba(255,255,255,0.8);
+.btnWhatsapp{
 
-    }
+    margin-top:10px;
 
+    background:#16a34a;
 
-    /* =========================================
-       TÍTULO DA SEÇÃO
-    ========================================= */
+    color:#fff;
 
-    .section-title {
+}
 
-      display:
-        flex;
+.btnWhatsapp:hover{
 
-      align-items:
-        center;
+    background:#15803d;
 
-      gap:
-        10px;
+}
 
-      margin-bottom:
-        17px;
+/* =========================================
+   CARREGANDO
+========================================= */
 
-      padding-left:
-        2px;
+.loader{
 
-    }
+    width:20px;
 
+    height:20px;
 
-    .section-title-icon {
+    border:3px solid rgba(255,255,255,0.3);
 
-      width:
-        34px;
+    border-top-color:#fff;
 
-      height:
-        34px;
+    border-radius:50%;
 
-      min-width:
-        34px;
-
-      border-radius:
-        10px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      background:
-        #eff6ff;
-
-      font-size:
-        17px;
-
-    }
-
-
-    .section-title-text {
-
-      min-width:
-        0;
-
-    }
-
-
-    .section-title-text h2 {
-
-      margin:
-        0;
-
-      font-size:
-        17px;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        -0.2px;
-
-    }
-
-
-    .section-title-text p {
-
-      margin:
-        2px
-        0
-        0;
-
-      font-size:
-        11px;
-
-      color:
-        #64748b;
-
-    }
-
-
-    /* =========================================
-       MENU
-    ========================================= */
-
-    .menu {
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      gap:
-        11px;
-
-    }
-
-
-    .menu-button {
-
-      width:
-        100%;
-
-      min-height:
-        78px;
-
-      border:
-        0;
-
-      border-radius:
-        18px;
-
-      padding:
-        10px
-        13px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      text-align:
-        left;
-
-      gap:
-        13px;
-
-      background:
-        #ffffff;
-
-      border:
-        1px solid
-        #e2e8f0;
-
-      cursor:
-        pointer;
-
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
-
-      box-shadow:
-        0 3px 10px
-        rgba(15,23,42,0.04);
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      appearance:
-        none;
-
-      -webkit-appearance:
-        none;
-
-    }
-
-
-    .menu-button::after {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      left:
-        0;
-
-      top:
-        0;
-
-      bottom:
-        0;
-
-      width:
-        4px;
-
-      background:
-        #2563eb;
-
-      opacity:
-        0;
-
-      transition:
-        opacity 0.15s ease;
-
-    }
-
-
-    .menu-button:hover {
-
-      background:
-        #f8fafc;
-
-      box-shadow:
-        0 7px 18px
-        rgba(15,23,42,0.08);
-
-      transform:
-        translateY(-1px);
-
-    }
-
-
-    .menu-button:hover::after {
-
-      opacity:
-        1;
-
-    }
-
-
-    .menu-button:active {
-
-      transform:
-        scale(0.985);
-
-      background:
-        #f1f5f9;
-
-      box-shadow:
-        none;
-
-    }
-
-
-    .menu-button:focus {
-
-      outline:
-        none;
-
-    }
-
-
-    .menu-button:focus-visible {
-
-      outline:
-        3px solid
-        rgba(37,99,235,0.25);
-
-      outline-offset:
-        2px;
-
-    }
-
-
-    /* =========================================
-       ÍCONES
-    ========================================= */
-
-    .menu-icon {
-
-      width:
-        50px;
-
-      height:
-        50px;
-
-      min-width:
-        50px;
-
-      border-radius:
-        14px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      font-size:
-        22px;
-
-    }
-
-
-    .icon-disponibilidade {
-
-      background:
-        #f0fdf4;
-
-    }
-
-
-    .icon-solicitacoes {
-
-      background:
-        #fff7ed;
-
-    }
-
-
-    .icon-criar {
-
-      background:
-        #eff6ff;
-
-    }
-
-
-    .icon-ranking {
-
-      background:
-        #fefce8;
-
-    }
-
-
-    .icon-chat {
-
-      background:
-        #f5f3ff;
-
-    }
-
-
-    .menu-info {
-
-      flex:
-        1;
-
-      min-width:
-        0;
-
-    }
-
-
-    .menu-title {
-
-      font-size:
-        14px;
-
-      font-weight:
-        750;
-
-      color:
-        #0f172a;
-
-      line-height:
-        1.25;
-
-    }
-
-
-    .menu-description {
-
-      margin-top:
-        4px;
-
-      font-size:
-        11px;
-
-      line-height:
-        1.4;
-
-      color:
-        #64748b;
-
-    }
-
-
-    .arrow {
-
-      width:
-        30px;
-
-      height:
-        30px;
-
-      min-width:
-        30px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border-radius:
-        50%;
-
-      background:
-        #f8fafc;
-
-      color:
-        #64748b;
-
-      font-size:
-        18px;
-
-      font-weight:
-        600;
-
-    }
-
-
-    /* =========================================
-       LOADING
-    ========================================= */
-
-    .loading {
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      z-index:
-        9999;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      background:
-        #0f172a;
-
-      transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-
-    }
-
-
-    .loading.hidden {
-
-      opacity:
-        0;
-
-      visibility:
-        hidden;
-
-      pointer-events:
-        none;
-
-    }
-
-
-    .loading-content {
-
-      text-align:
-        center;
-
-      color:
-        white;
-
-    }
-
-
-    .spinner {
-
-      width:
-        38px;
-
-      height:
-        38px;
-
-      border-radius:
-        50%;
-
-      border:
-        3px solid
-        rgba(255,255,255,0.18);
-
-      border-top-color:
-        white;
-
-      animation:
+    animation:
         girar 0.8s linear infinite;
 
-      margin:
-        0
-        auto
-        14px;
+    display:inline-block;
 
+    vertical-align:middle;
+
+}
+
+@keyframes girar{
+
+    to{
+        transform:rotate(360deg);
     }
 
+}
 
-    .loading-text {
+/* =========================================
+   ACESSO LIBERADO
+========================================= */
 
-      font-size:
-        12px;
+#areaLiberada{
 
-      color:
-        rgba(255,255,255,0.65);
+    display:none;
 
-    }
+    text-align:center;
 
+}
 
-    @keyframes girar {
+.iconeLiberado{
 
-      to {
+    width:75px;
 
-        transform:
-          rotate(360deg);
+    height:75px;
 
-      }
+    border-radius:50%;
 
-    }
+    background:#16a34a;
 
+    margin:0 auto 18px;
 
-    /* =========================================
-       BOTÃO CARREGANDO
-    ========================================= */
+    display:flex;
 
-    .menu-button.carregando {
+    align-items:center;
 
-      pointer-events:
-        none;
+    justify-content:center;
 
-      opacity:
-        0.7;
+    font-size:36px;
 
-    }
+}
 
+#areaLiberada h2{
 
-    .menu-button.carregando .arrow {
+    margin-bottom:10px;
 
-      animation:
-        girar 0.7s linear infinite;
+    font-size:21px;
 
-    }
+}
 
+#areaLiberada p{
 
-    /* =========================================
-       TELAS PEQUENAS
-    ========================================= */
+    color:#cbd5e1;
 
-    @media (max-width: 380px) {
+    font-size:14px;
 
-      .app {
+    line-height:1.5;
 
-        padding-left:
-          14px;
+}
 
-        padding-right:
-          14px;
+/* =========================================
+   OCULTO
+========================================= */
 
-        padding-top:
-          18px;
+.oculto{
 
-      }
+    display:none !important;
 
+}
 
-      .header {
-
-        padding-bottom:
-          22px;
-
-      }
-
-
-      .brand-text h1 {
-
-        font-size:
-          21px;
-
-      }
-
-
-      .logo {
-
-        width:
-          47px;
-
-        height:
-          47px;
-
-        min-width:
-          47px;
-
-        font-size:
-          22px;
-
-      }
-
-
-      .content {
-
-        padding:
-          19px
-          14px
-          17px;
-
-        border-radius:
-          24px;
-
-      }
-
-
-      .menu-button {
-
-        min-height:
-          72px;
-
-        padding:
-          9px
-          10px;
-
-        gap:
-          10px;
-
-      }
-
-
-      .menu-icon {
-
-        width:
-          43px;
-
-        height:
-          43px;
-
-        min-width:
-          43px;
-
-        font-size:
-          19px;
-
-      }
-
-
-      .menu-title {
-
-        font-size:
-          13px;
-
-      }
-
-
-      .menu-description {
-
-        font-size:
-          10px;
-
-      }
-
-    }
-
-
-    /* =========================================
-       ALTURA PEQUENA
-    ========================================= */
-
-    @media (max-height: 700px) {
-
-      .app {
-
-        padding-top:
-          14px;
-
-      }
-
-
-      .header {
-
-        padding-bottom:
-          17px;
-
-      }
-
-
-      .user-card {
-
-        margin-top:
-          15px;
-
-      }
-
-
-      .content {
-
-        padding-top:
-          16px;
-
-      }
-
-
-      .menu {
-
-        gap:
-          8px;
-
-      }
-
-
-      .menu-button {
-
-        min-height:
-          65px;
-
-      }
-
-    }
-
-
-    /* =========================================
-       TABLET / DESKTOP
-    ========================================= */
-
-    @media (min-width: 700px) {
-
-      body {
-
-        display:
-          flex;
-
-        justify-content:
-          center;
-
-      }
-
-
-      .app {
-
-        padding-top:
-          40px;
-
-      }
-
-
-      .header {
-
-        padding-bottom:
-          35px;
-
-      }
-
-
-      .content {
-
-        padding:
-          25px
-          23px;
-
-      }
-
-
-      .menu-button {
-
-        min-height:
-          82px;
-
-      }
-
-
-      .menu-title {
-
-        font-size:
-          15px;
-
-      }
-
-
-      .menu-description {
-
-        font-size:
-          12px;
-
-      }
-
-    }
-
-
-    /* =========================================
-       ACESSIBILIDADE
-    ========================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-
-        animation-duration:
-          0.01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        transition-duration:
-          0.01ms !important;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
@@ -1263,590 +431,858 @@
 <body>
 
 
-  <!-- =======================================
-       CARREGAMENTO
-  ======================================== -->
+<div class="container">
 
-  <div
-    class="loading"
-    id="loading"
-  >
 
-    <div class="loading-content">
+    <!-- =====================================
+         ÁREA PRINCIPAL
+    ====================================== -->
 
-      <div class="spinner"></div>
+    <div id="areaPrincipal">
 
-      <div class="loading-text">
-        Carregando Escala Distrital...
-      </div>
+
+        <div class="icone">
+            🔐
+        </div>
+
+
+        <h1>
+            Liberação de Escala
+        </h1>
+
+
+        <p class="subtitulo">
+            Verificando se sua conta possui
+            autorização para acessar as funções
+            de criação de escalas.
+        </p>
+
+
+        <!-- USUÁRIO -->
+
+        <div class="usuario">
+
+            <small>
+                Usuário conectado
+            </small>
+
+            <strong id="nomeUsuario">
+                Carregando...
+            </strong>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div
+            id="status"
+            class="status verificando"
+        >
+
+            <span class="loader"></span>
+
+            Verificando autorização...
+
+        </div>
+
+
+        <!-- =================================
+             ÁREA DO CÓDIGO
+        ================================== -->
+
+        <div id="areaCodigo">
+
+            <label class="label">
+
+                Digite o código de liberação
+                fornecido pelo administrador:
+
+            </label>
+
+
+            <input
+                id="codigo"
+                class="inputCodigo"
+                type="text"
+                inputmode="numeric"
+                maxlength="6"
+                autocomplete="off"
+                placeholder="000000"
+            >
+
+
+            <button
+                id="btnConfirmar"
+                class="btnPrincipal"
+                onclick="confirmarCodigoEscala()"
+            >
+
+                Liberar acesso
+
+            </button>
+
+
+            <button
+                class="btnWhatsapp"
+                onclick="solicitarCodigo()"
+            >
+
+                📱 Não tenho o código
+
+            </button>
+
+        </div>
+
 
     </div>
 
-  </div>
-
-
-  <!-- =======================================
-       APLICATIVO
-  ======================================== -->
-
-  <div class="app">
-
 
     <!-- =====================================
-         CABEÇALHO
+         ÁREA LIBERADA
     ====================================== -->
 
-    <header class="header">
+    <div id="areaLiberada">
 
 
-      <div class="header-top">
+        <div class="iconeLiberado">
 
-
-        <div class="brand">
-
-
-          <div class="logo">
-            📅
-          </div>
-
-
-          <div class="brand-text">
-
-            <h1>
-              Escala Distrital
-            </h1>
-
-            <span>
-              IASD Chapadinha
-            </span>
-
-          </div>
-
+            ✓
 
         </div>
 
 
-      </div>
+        <h2>
+            Acesso liberado
+        </h2>
 
 
-      <!-- ===================================
-           USUÁRIO
-      ==================================== -->
+        <p>
+            Sua conta está autorizada para
+            utilizar as funções de desenvolvedor
+            de escalas.
+        </p>
 
-      <div class="user-card">
 
+    </div>
 
-        <div class="user-icon">
-          👤
-        </div>
 
+</div>
 
-        <div class="user-info">
 
+<script>
 
-          <div class="user-label">
-            Usuário conectado
-          </div>
+/* =====================================================
+   CONFIGURAÇÕES
+===================================================== */
 
+const ORIGEM_GITHUB =
+    "https://matheus8964.github.io";
 
-          <div
-            class="user-name"
-            id="nomeUsuario"
-          >
-            Carregando...
-          </div>
 
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
 
-        </div>
+let usuario = null;
 
 
-      </div>
+/* =====================================================
+   ENVIAR STATUS PARA O GITHUB
+===================================================== */
 
+function enviarStatusParaGitHub(status){
 
-    </header>
+    try{
 
+        const mensagem = {
 
-    <!-- =====================================
-         CONTEÚDO
-    ====================================== -->
+            tipo:
+                "STATUS_ACESSO_ESCALA",
 
-    <main class="content">
+            status:
+                String(status || "")
+                    .toLowerCase(),
 
+            idUsuario:
+                usuario &&
+                usuario.idUsuario
+                    ? String(usuario.idUsuario)
+                    : ""
 
-      <div class="section-title">
+        };
 
 
-        <div class="section-title-icon">
-          📋
-        </div>
+        /*
+         * IMPORTANTE:
+         *
+         * Não usamos window.parent.
+         *
+         * Como esta página pode estar dentro
+         * de vários iframes do Apps Script,
+         * window.parent pode apontar para outro
+         * domínio do Google.
+         *
+         * window.top alcança a janela principal
+         * do GitHub.
+         */
 
-
-        <div class="section-title-text">
-
-          <h2>
-            Menu principal
-          </h2>
-
-          <p>
-            Gerencie sua participação nas escalas
-          </p>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ===================================
-           MENU
-      ==================================== -->
-
-      <div class="menu">
-
-
-        <!-- =================================
-             DISPONIBILIDADES
-        ================================== -->
-
-        <button
-          class="menu-button"
-          type="button"
-          onclick="abrirPagina('disponibilidade', this)"
-        >
-
-          <div
-            class="menu-icon icon-disponibilidade"
-          >
-            📅
-          </div>
-
-
-          <div class="menu-info">
-
-            <div class="menu-title">
-              Cadastrar minhas disponibilidades
-            </div>
-
-            <div class="menu-description">
-              Informe no calendário os dias em que
-              você estará disponível para cantar ou pregar.
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-            ›
-          </div>
-
-        </button>
-
-
-        <!-- =================================
-             SOLICITAÇÕES
-        ================================== -->
-
-        <button
-          class="menu-button"
-          type="button"
-          onclick="abrirPagina('solicitacoes', this)"
-        >
-
-          <div
-            class="menu-icon icon-solicitacoes"
-          >
-            🔔
-          </div>
-
-
-          <div class="menu-info">
-
-            <div class="menu-title">
-              Solicitações pendentes
-            </div>
-
-            <div class="menu-description">
-              Aprove ou reprove solicitações
-              feitas por outros usuários.
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-            ›
-          </div>
-
-        </button>
-
-
-        <!-- =================================
-             CRIAR ESCALA
-        ================================== -->
-
-        <button
-          class="menu-button"
-          type="button"
-          onclick="abrirPagina('criarEscala', this)"
-        >
-
-          <div
-            class="menu-icon icon-criar"
-          >
-            🗓️
-          </div>
-
-
-          <div class="menu-info">
-
-            <div class="menu-title">
-              Espaço para criar escalas
-            </div>
-
-            <div class="menu-description">
-              Se você tiver permissão, veja cantores
-              e pregadores disponíveis em uma determinada data.
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-            ›
-          </div>
-
-        </button>
-
-
-        <!-- =================================
-             RANKING
-        ================================== -->
-
-        <button
-          class="menu-button"
-          type="button"
-          onclick="abrirPagina('ranking', this)"
-        >
-
-          <div
-            class="menu-icon icon-ranking"
-          >
-            🏆
-          </div>
-
-
-          <div class="menu-info">
-
-            <div class="menu-title">
-              Ranking de cantores do distrito
-            </div>
-
-            <div class="menu-description">
-              Veja o ranking de cantores que mais
-              se apresentaram nas igrejas do distrito.
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-            ›
-          </div>
-
-        </button>
-
-
-        <!-- =================================
-             CHAT
-        ================================== -->
-
-        <button
-          class="menu-button"
-          type="button"
-          onclick="abrirPagina('chat', this)"
-        >
-
-          <div
-            class="menu-icon icon-chat"
-          >
-            💬
-          </div>
-
-
-          <div class="menu-info">
-
-            <div class="menu-title">
-              Chat geral
-            </div>
-
-            <div class="menu-description">
-              Espaço para todos os usuários
-              conversarem e trocarem informações.
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-            ›
-          </div>
-
-        </button>
-
-
-      </div>
-
-
-    </main>
-
-
-    <!-- =====================================
-         RODAPÉ
-    ====================================== -->
-
-    <footer class="footer">
-
-      <strong>
-        Escala Distrital IASD Chapadinha
-      </strong>
-
-      <br>
-
-      Sistema de gerenciamento de escalas
-
-    </footer>
-
-
-  </div>
-
-
-  <!-- =======================================
-       JAVASCRIPT
-  ======================================== -->
-
-  <script>
-
-
-    /* =======================================
-       CARREGAR USUÁRIO
-    ======================================== */
-
-    function carregarUsuario() {
-
-
-      const params =
-        new URLSearchParams(
-          window.location.search
+        window.top.postMessage(
+            mensagem,
+            ORIGEM_GITHUB
         );
 
 
-      const nomeURL =
-        params.get("nome");
-
-
-      const elemento =
-        document.getElementById(
-          "nomeUsuario"
+        console.log(
+            "Status enviado ao GitHub:",
+            mensagem
         );
 
+    }catch(erro){
 
-      /*
-       * =====================================
-       * SE RECEBEU NOME PELA URL
-       * =====================================
-       */
+        console.error(
+            "Erro ao enviar status:",
+            erro
+        );
 
-      if (
-        nomeURL &&
-        nomeURL.trim() !== ""
-      ) {
+    }
 
+}
+
+
+/* =====================================================
+   OBTER USUÁRIO
+===================================================== */
+
+function carregarUsuario(){
+
+    try{
+
+        /*
+         * Primeiro tenta localStorage
+         */
+
+        const salvo =
+            localStorage.getItem("usuario");
+
+
+        if(salvo){
+
+            usuario =
+                JSON.parse(salvo);
+
+        }
+
+
+        /*
+         * Se não encontrou no localStorage,
+         * tenta pegar da URL.
+         */
+
+        if(!usuario){
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const idUsuario =
+                params.get("idUsuario");
+
+
+            const nome =
+                params.get("nome");
+
+
+            if(idUsuario){
+
+                usuario = {
+
+                    idUsuario:
+                        idUsuario,
+
+                    nome:
+                        nome || ""
+
+                };
+
+
+                /*
+                 * Salva para as próximas vezes.
+                 */
+
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(usuario)
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Se ainda não encontrou usuário
+         */
+
+        if(!usuario){
+
+            document.getElementById(
+                "nomeUsuario"
+            ).textContent =
+                "Usuário não identificado";
+
+
+            alterarStatus(
+                "erro",
+                "Não foi possível identificar o usuário."
+            );
+
+
+            enviarStatusParaGitHub(
+                "block"
+            );
+
+
+            return false;
+
+        }
+
+
+        /*
+         * Mostra nome
+         */
 
         const nome =
-          nomeURL.trim();
+            usuario.Nome ||
+            usuario.nome ||
+            usuario.nomeUsuario ||
+            "Usuário";
 
 
-        localStorage.setItem(
-          "nomeUsuario",
-          nome
+        document.getElementById(
+            "nomeUsuario"
+        ).textContent = nome;
+
+
+        return true;
+
+
+    }catch(erro){
+
+        console.error(
+            "Erro ao carregar usuário:",
+            erro
         );
 
 
-        if (elemento) {
-
-          elemento.textContent =
-            nome;
-
-        }
-
-
-        /*
-         * Remove o parâmetro
-         * da URL depois de salvar.
-         */
-
-        window.history.replaceState(
-          {},
-          document.title,
-          window.location.pathname
+        alterarStatus(
+            "erro",
+            "Erro ao carregar os dados do usuário."
         );
 
+
+        enviarStatusParaGitHub(
+            "block"
+        );
+
+
+        return false;
+
+    }
+
+}
+
+
+/* =====================================================
+   ALTERAR STATUS VISUAL
+===================================================== */
+
+function alterarStatus(tipo, mensagem){
+
+    const elemento =
+        document.getElementById("status");
+
+
+    if(!elemento) return;
+
+
+    elemento.className =
+        "status " + tipo;
+
+
+    elemento.innerHTML =
+        mensagem;
+
+}
+
+
+/* =====================================================
+   VERIFICAR ACESSO
+===================================================== */
+
+function verificarAcessoEscala(){
+
+    if(
+        !usuario ||
+        !usuario.idUsuario
+    ){
+
+        enviarStatusParaGitHub(
+            "block"
+        );
 
         return;
-
-      }
-
-
-      /*
-       * =====================================
-       * BUSCAR NOME SALVO
-       * =====================================
-       */
-
-      const nomeSalvo =
-        localStorage.getItem(
-          "nomeUsuario"
-        );
-
-
-      if (elemento) {
-
-        elemento.textContent =
-          nomeSalvo ||
-          "Usuário";
-
-      }
 
     }
 
 
-    /* =======================================
-       ABRIR PÁGINA
-    ======================================== */
-
-    function abrirPagina(
-      pagina,
-      botao
-    ) {
-
-
-      const paginas = {
-
-
-        /*
-         * CADASTRAR DISPONIBILIDADES
-         */
-
-        disponibilidade:
-          "./disponibilidade.html",
-
-
-        /*
-         * SOLICITAÇÕES
-         */
-
-        solicitacoes:
-          "./solicitacoes.html",
-
-
-        /*
-         * CRIAR ESCALA
-         */
-
-        criarEscala:
-          "./criarEscala.html",
-
-
-        /*
-         * RANKING
-         */
-
-        ranking:
-          "./ranking.html",
-
-
-        /*
-         * CHAT
-         */
-
-        chat:
-          "./chat.html"
-
-      };
-
-
-      const destino =
-        paginas[pagina];
-
-
-      if (!destino) {
-
-        return;
-
-      }
-
-
-      /*
-       * Efeito visual
-       */
-
-      if (botao) {
-
-        botao.classList.add(
-          "carregando"
-        );
-
-      }
-
-
-      /*
-       * Abrir página
-       */
-
-      window.location.href =
-        destino;
-
-    }
-
-
-    /* =======================================
-       INICIALIZAÇÃO
-    ======================================== */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-
-        carregarUsuario();
-
-
-        const loading =
-          document.getElementById(
-            "loading"
-          );
-
-
-        if (loading) {
-
-          setTimeout(
-            function() {
-
-              loading.classList.add(
-                "hidden"
-              );
-
-            },
-            250
-          );
-
-        }
-
-      }
+    alterarStatus(
+        "verificando",
+        '<span class="loader"></span> Verificando autorização...'
     );
 
 
-  </script>
+    google.script.run
+
+        .withSuccessHandler(function(resposta){
+
+            console.log(
+                "Resposta da verificação:",
+                resposta
+            );
+
+
+            /*
+             * Usuário autorizado
+             */
+
+            if(
+                resposta &&
+                resposta.sucesso === true &&
+                resposta.liberado === true
+            ){
+
+                /*
+                 * Envia UNBLOCK para o GitHub
+                 */
+
+                enviarStatusParaGitHub(
+                    "unblock"
+                );
+
+
+                /*
+                 * Esconde área principal
+                 */
+
+                document.getElementById(
+                    "areaPrincipal"
+                ).style.display = "none";
+
+
+                /*
+                 * Mostra área liberada
+                 */
+
+                document.getElementById(
+                    "areaLiberada"
+                ).style.display = "block";
+
+
+                return;
+
+            }
+
+
+            /*
+             * Usuário NÃO autorizado
+             */
+
+            enviarStatusParaGitHub(
+                "block"
+            );
+
+
+            document.getElementById(
+                "areaCodigo"
+            ).style.display = "block";
+
+
+            alterarStatus(
+                "erro",
+                "Sua conta ainda não possui autorização para criar escalas."
+            );
+
+
+        })
+
+        .withFailureHandler(function(erro){
+
+            console.error(
+                "Erro na verificação:",
+                erro
+            );
+
+
+            enviarStatusParaGitHub(
+                "block"
+            );
+
+
+            alterarStatus(
+                "erro",
+                "Não foi possível verificar sua autorização."
+            );
+
+
+        })
+
+        .verificarLiberacaoEscala(
+            String(usuario.idUsuario)
+        );
+
+}
+
+
+/* =====================================================
+   CONFIRMAR CÓDIGO
+===================================================== */
+
+function confirmarCodigoEscala(){
+
+    const input =
+        document.getElementById(
+            "codigo"
+        );
+
+
+    const botao =
+        document.getElementById(
+            "btnConfirmar"
+        );
+
+
+    const codigo =
+        String(
+            input.value || ""
+        ).trim();
+
+
+    /*
+     * Validação
+     */
+
+    if(!/^\d{6}$/.test(codigo)){
+
+        alterarStatus(
+            "erro",
+            "Digite um código válido com exatamente 6 números."
+        );
+
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    /*
+     * Desabilita botão
+     */
+
+    botao.disabled = true;
+
+    botao.innerHTML =
+        '<span class="loader"></span> Verificando...';
+
+
+    alterarStatus(
+        "verificando",
+        '<span class="loader"></span> Validando código...'
+    );
+
+
+    /*
+     * Envia para o Apps Script
+     */
+
+    google.script.run
+
+        .withSuccessHandler(function(resposta){
+
+            console.log(
+                "Resposta do código:",
+                resposta
+            );
+
+
+            /*
+             * Código correto
+             */
+
+            if(
+                resposta &&
+                resposta.sucesso === true &&
+                resposta.liberado === true
+            ){
+
+                /*
+                 * O Apps Script agora confirma
+                 * novamente a autorização.
+                 */
+
+                enviarStatusParaGitHub(
+                    "unblock"
+                );
+
+
+                alterarStatus(
+                    "sucesso",
+                    "Código validado com sucesso."
+                );
+
+
+                /*
+                 * Atualiza a tela
+                 */
+
+                document.getElementById(
+                    "areaCodigo"
+                ).style.display = "none";
+
+
+                document.getElementById(
+                    "areaPrincipal"
+                ).style.display = "none";
+
+
+                document.getElementById(
+                    "areaLiberada"
+                ).style.display = "block";
+
+
+                return;
+
+            }
+
+
+            /*
+             * Código incorreto
+             */
+
+            enviarStatusParaGitHub(
+                "block"
+            );
+
+
+            alterarStatus(
+                "erro",
+                resposta &&
+                resposta.mensagem
+                    ? resposta.mensagem
+                    : "Código inválido."
+            );
+
+
+            botao.disabled = false;
+
+            botao.textContent =
+                "Liberar acesso";
+
+        })
+
+        .withFailureHandler(function(erro){
+
+            console.error(
+                "Erro ao validar código:",
+                erro
+            );
+
+
+            enviarStatusParaGitHub(
+                "block"
+            );
+
+
+            alterarStatus(
+                "erro",
+                "Erro ao validar o código."
+            );
+
+
+            botao.disabled = false;
+
+            botao.textContent =
+                "Liberar acesso";
+
+        })
+
+        .verificarCodigoLiberacao(
+
+            String(
+                usuario.idUsuario
+            ),
+
+            codigo
+
+        );
+
+}
+
+
+/* =====================================================
+   SOLICITAR CÓDIGO PELO WHATSAPP
+===================================================== */
+
+function solicitarCodigo(){
+
+    if(!usuario){
+
+        return;
+
+    }
+
+
+    /*
+     * Tenta encontrar o número do administrador
+     * em diferentes propriedades.
+     */
+
+    let numero =
+        usuario.whatsappAdmin ||
+        usuario.whatsappAdministrador ||
+        usuario.numeroAdmin ||
+        "98988554359";
+
+
+    /*
+     * Remove tudo que não for número.
+     */
+
+    numero =
+        String(numero)
+            .replace(/\D/g, "");
+
+
+    /*
+     * Caso seja número brasileiro sem DDI,
+     * adiciona 55.
+     */
+
+    if(
+        numero.length === 11 &&
+        numero.startsWith("9")
+    ){
+
+        numero =
+            "55" + numero;
+
+    }
+
+
+    const nome =
+        usuario.Nome ||
+        usuario.nome ||
+        usuario.nomeUsuario ||
+        "usuário";
+
+
+    const mensagem =
+        "Olá! Sou " +
+        nome +
+        " e preciso do código de liberação " +
+        "para criar escalas.";
+
+
+    const url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   SOMENTE NÚMEROS NO CÓDIGO
+===================================================== */
+
+document
+    .getElementById("codigo")
+    .addEventListener(
+        "input",
+        function(){
+
+            this.value =
+                this.value
+                    .replace(/\D/g, "")
+                    .slice(0, 6);
+
+        }
+    );
+
+
+/* =====================================================
+   ENTER PARA CONFIRMAR
+===================================================== */
+
+document
+    .getElementById("codigo")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Enter"
+            ){
+
+                confirmarCodigoEscala();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        /*
+         * Primeiro identifica o usuário.
+         */
+
+        const identificado =
+            carregarUsuario();
+
+
+        /*
+         * Depois verifica autorização.
+         */
+
+        if(identificado){
+
+            verificarAcessoEscala();
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
