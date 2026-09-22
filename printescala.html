@@ -15,13 +15,9 @@
 
 <meta name="theme-color" content="#0f172a">
 
-<title>Espaço para Criar Escalas</title>
+<title>Imprimir Escala - Escala Distrital</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 * {
     box-sizing: border-box;
@@ -29,7 +25,6 @@
 
 html,
 body {
-
     margin: 0;
     padding: 0;
 
@@ -41,6 +36,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
     background: #f1f5f9;
+}
+
+body {
+
+    padding-top: env(safe-area-inset-top);
+
+    padding-bottom: env(safe-area-inset-bottom);
 
 }
 
@@ -50,12 +52,6 @@ body {
 ===================================================== */
 
 .header {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
 
     height: 58px;
 
@@ -71,25 +67,30 @@ body {
 
     gap: 12px;
 
-    z-index: 1000;
+    position: relative;
+
+    z-index: 10;
 
 }
 
 
 .btn-voltar {
 
-    width: 42px;
-    height: 42px;
-
     border: 0;
-
-    border-radius: 12px;
 
     background: rgba(255,255,255,0.12);
 
     color: white;
 
-    font-size: 23px;
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+
+    cursor: pointer;
 
     display: flex;
 
@@ -97,16 +98,12 @@ body {
 
     justify-content: center;
 
-    cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
-
 }
 
 
 .btn-voltar:active {
 
-    transform: scale(0.94);
+    transform: scale(0.95);
 
 }
 
@@ -121,180 +118,31 @@ body {
 
 
 /* =====================================================
-   CONTEÚDO
+   ÁREA DO IFRAME
 ===================================================== */
 
-.conteudo {
+.webview {
 
     position: absolute;
 
     top: 58px;
 
     left: 0;
-    right: 0;
-
-    bottom: 68px;
-
-    overflow-y: auto;
-
-    padding: 18px 14px 25px;
-
-}
-
-
-/* =====================================================
-   TEXTO DE APRESENTAÇÃO
-===================================================== */
-
-.introducao {
-
-    margin-bottom: 18px;
-
-}
-
-
-.introducao h2 {
-
-    margin: 0 0 7px;
-
-    color: #0f172a;
-
-    font-size: 21px;
-
-}
-
-
-.introducao p {
-
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =====================================================
-   CARDS
-===================================================== */
-
-.card {
 
     width: 100%;
 
+    /*
+       58px = cabeçalho
+       68px = barra inferior
+    */
+
+    height: calc(100vh - 126px);
+
+    border: 0;
+
+    display: block;
+
     background: white;
-
-    border-radius: 16px;
-
-    margin-bottom: 14px;
-
-    padding: 18px;
-
-    box-shadow:
-        0 3px 12px rgba(15,23,42,0.08);
-
-    border: 1px solid #e2e8f0;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color: transparent;
-
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
-
-}
-
-
-.card:active {
-
-    transform: scale(0.98);
-
-    box-shadow:
-        0 2px 7px rgba(15,23,42,0.12);
-
-}
-
-
-/* =====================================================
-   ÍCONE
-===================================================== */
-
-.card-topo {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.icone {
-
-    width: 52px;
-    height: 52px;
-
-    flex-shrink: 0;
-
-    border-radius: 14px;
-
-    background: #e2e8f0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 27px;
-
-}
-
-
-.card h3 {
-
-    margin: 0;
-
-    color: #0f172a;
-
-    font-size: 17px;
-
-    line-height: 1.25;
-
-}
-
-
-.card p {
-
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =====================================================
-   SETA
-===================================================== */
-
-.seta {
-
-    margin-left: auto;
-
-    color: #94a3b8;
-
-    font-size: 24px;
 
 }
 
@@ -308,7 +156,9 @@ body {
     position: fixed;
 
     left: 0;
+
     right: 0;
+
     bottom: 0;
 
     height: 68px;
@@ -321,7 +171,7 @@ body {
 
     justify-content: space-around;
 
-    z-index: 2000;
+    z-index: 9999;
 
     padding-bottom: env(safe-area-inset-bottom);
 
@@ -366,7 +216,7 @@ body {
 }
 
 
-.nav-item .icone-nav {
+.nav-item .icone {
 
     font-size: 23px;
 
@@ -390,22 +240,27 @@ body {
 
 
 /* =====================================================
-   RESPONSIVO
+   AJUSTE PARA CELULARES
 ===================================================== */
 
 @media (max-width: 480px) {
 
     .titulo {
+
         font-size: 17px;
+
     }
 
-    .conteudo {
-        padding-left: 12px;
-        padding-right: 12px;
+    .nav-item {
+
+        font-size: 10px;
+
     }
 
-    .card {
-        padding: 16px;
+    .nav-item .icone {
+
+        font-size: 22px;
+
     }
 
 }
@@ -426,14 +281,17 @@ body {
 
     <button
         class="btn-voltar"
-        onclick="irParaHome()"
+        onclick="voltarCriarEscala()"
         aria-label="Voltar"
     >
         ←
     </button>
 
+
     <div class="titulo">
-        Espaço para Criar Escalas
+
+        Imprimir minha escala
+
     </div>
 
 </header>
@@ -441,136 +299,18 @@ body {
 
 
 <!-- =====================================================
-     CONTEÚDO
+     PÁGINA DE IMPRESSÃO
 ===================================================== -->
 
-<main class="conteudo">
+<iframe
+    class="webview"
 
+    src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=printEscala"
 
-    <div class="introducao">
+    allow="clipboard-read; clipboard-write"
 
-        <h2>
-            Criar e gerenciar escalas
-        </h2>
-
-        <p>
-            Escolha uma das opções abaixo para
-            acessar os recursos de criação e
-            impressão de escalas.
-        </p>
-
-    </div>
-
-
-
-    <!-- =================================================
-         SOLICITAR ACESSO
-    ================================================== -->
-
-    <div
-        class="card"
-        onclick="solicitarAcesso()"
-    >
-
-        <div class="card-topo">
-
-            <div class="icone">
-                🔑
-            </div>
-
-            <h3>
-                SOLICITAR ACESSO
-            </h3>
-
-            <div class="seta">
-                ›
-            </div>
-
-        </div>
-
-        <p>
-            Solicite acesso caso o seu usuário
-            esteja bloqueado. Informe o código
-            da sua igreja para ter acesso às
-            opções abaixo.
-        </p>
-
-    </div>
-
-
-
-    <!-- =================================================
-         CRIAR / SOLICITAR / EDITAR ESCALA
-    ================================================== -->
-
-    <div
-        class="card"
-        onclick="criarEditarEscala()"
-    >
-
-        <div class="card-topo">
-
-            <div class="icone">
-                📅
-            </div>
-
-            <h3>
-                CRIAR / SOLICITAR / EDITAR ESCALA
-            </h3>
-
-            <div class="seta">
-                ›
-            </div>
-
-        </div>
-
-        <p>
-            Veja, através do calendário, os
-            pregadores disponíveis para o dia
-            desejado e crie, solicite ou edite
-            sua escala.
-        </p>
-
-    </div>
-
-
-
-    <!-- =================================================
-         IMPRIMIR ESCALA LOCAL
-    ================================================== -->
-
-    <div
-        class="card"
-        onclick="imprimirEscalaLocal()"
-    >
-
-        <div class="card-topo">
-
-            <div class="icone">
-                🖨️
-            </div>
-
-            <h3>
-                IMPRIMIR ESCALA LOCAL
-            </h3>
-
-            <div class="seta">
-                ›
-            </div>
-
-        </div>
-
-        <p>
-            Imprima uma escala pronta, adicione
-            o logo da sua igreja ou baixe o
-            Excel e monte sua própria escala
-            do seu estilo.
-        </p>
-
-    </div>
-
-
-</main>
+    loading="eager"
+></iframe>
 
 
 
@@ -584,11 +324,11 @@ body {
     <!-- INÍCIO -->
 
     <button
-        class="nav-item ativo"
+        class="nav-item"
         onclick="irParaHome()"
     >
 
-        <span class="icone-nav">
+        <span class="icone">
             🏠
         </span>
 
@@ -607,7 +347,7 @@ body {
         onclick="irParaDisponibilidade()"
     >
 
-        <span class="icone-nav">
+        <span class="icone">
             📅
         </span>
 
@@ -626,7 +366,7 @@ body {
         onclick="irParaSolicitacoes()"
     >
 
-        <span class="icone-nav">
+        <span class="icone">
             📩
         </span>
 
@@ -641,11 +381,11 @@ body {
     <!-- MENU -->
 
     <button
-        class="nav-item"
+        class="nav-item ativo"
         onclick="irParaHome()"
     >
 
-        <span class="icone-nav">
+        <span class="icone">
             ☰
         </span>
 
@@ -662,7 +402,7 @@ body {
 <script>
 
 /* =====================================================
-   USUÁRIO
+   DADOS DO USUÁRIO
 ===================================================== */
 
 function obterDadosUsuario() {
@@ -675,8 +415,9 @@ function obterDadosUsuario() {
 
     return {
 
-        idUsuario,
-        nome
+        idUsuario: idUsuario,
+
+        nome: nome
 
     };
 
@@ -684,15 +425,26 @@ function obterDadosUsuario() {
 
 
 /* =====================================================
-   MONTAR URL COM USUÁRIO
+   VOLTAR PARA A ÁREA DE CRIAÇÃO DE ESCALA
 ===================================================== */
 
-function montarUrl(pagina) {
+function voltarCriarEscala() {
+
+    /*
+       Volta para a página de liberação/criação
+       de escala.
+
+       O usuário continua dentro do fluxo
+       de criação de escala.
+    */
 
     const usuario =
         obterDadosUsuario();
 
-    let url = "./" + pagina;
+
+    let url =
+        "./criar-escala.html";
+
 
     const parametros = [];
 
@@ -730,19 +482,62 @@ function montarUrl(pagina) {
     }
 
 
-    return url;
+    window.location.href = url;
 
 }
 
 
 /* =====================================================
-   HOME
+   INÍCIO
 ===================================================== */
 
 function irParaHome() {
 
-    window.location.href =
-        montarUrl("home.html");
+    const usuario =
+        obterDadosUsuario();
+
+
+    let url =
+        "./home.html";
+
+
+    const parametros = [];
+
+
+    if (usuario.idUsuario) {
+
+        parametros.push(
+            "idUsuario=" +
+            encodeURIComponent(
+                usuario.idUsuario
+            )
+        );
+
+    }
+
+
+    if (usuario.nome) {
+
+        parametros.push(
+            "nome=" +
+            encodeURIComponent(
+                usuario.nome
+            )
+        );
+
+    }
+
+
+    if (parametros.length > 0) {
+
+        url +=
+            "?" +
+            parametros.join("&");
+
+    }
+
+
+    window.location.href = url;
 
 }
 
@@ -753,8 +548,51 @@ function irParaHome() {
 
 function irParaDisponibilidade() {
 
-    window.location.href =
-        montarUrl("disponibilidade.html");
+    const usuario =
+        obterDadosUsuario();
+
+
+    let url =
+        "./disponibilidade.html";
+
+
+    const parametros = [];
+
+
+    if (usuario.idUsuario) {
+
+        parametros.push(
+            "idUsuario=" +
+            encodeURIComponent(
+                usuario.idUsuario
+            )
+        );
+
+    }
+
+
+    if (usuario.nome) {
+
+        parametros.push(
+            "nome=" +
+            encodeURIComponent(
+                usuario.nome
+            )
+        );
+
+    }
+
+
+    if (parametros.length > 0) {
+
+        url +=
+            "?" +
+            parametros.join("&");
+
+    }
+
+
+    window.location.href = url;
 
 }
 
@@ -765,50 +603,57 @@ function irParaDisponibilidade() {
 
 function irParaSolicitacoes() {
 
-    window.location.href =
-        montarUrl("solicitacoes.html");
+    const usuario =
+        obterDadosUsuario();
+
+
+    let url =
+        "./solicitacoes.html";
+
+
+    const parametros = [];
+
+
+    if (usuario.idUsuario) {
+
+        parametros.push(
+            "idUsuario=" +
+            encodeURIComponent(
+                usuario.idUsuario
+            )
+        );
+
+    }
+
+
+    if (usuario.nome) {
+
+        parametros.push(
+            "nome=" +
+            encodeURIComponent(
+                usuario.nome
+            )
+        );
+
+    }
+
+
+    if (parametros.length > 0) {
+
+        url +=
+            "?" +
+            parametros.join("&");
+
+    }
+
+
+    window.location.href = url;
 
 }
 
 
 /* =====================================================
-   SOLICITAR ACESSO
-===================================================== */
-
-function solicitarAcesso() {
-
-    window.location.href =
-        montarUrl("solicitaracesso.html");
-
-}
-
-
-/* =====================================================
-   CRIAR / SOLICITAR / EDITAR
-===================================================== */
-
-function criarEditarEscala() {
-
-    window.location.href =
-        montarUrl("criacaoescala.html");
-
-}
-
-
-/* =====================================================
-   IMPRIMIR ESCALA LOCAL
-===================================================== */
-
-function imprimirEscalaLocal() {
-
-    window.location.href =
-        montarUrl("printescala.html");
-
-}
-
-
-/* =====================================================
-   RECEBER DADOS DA URL
+   INICIALIZAÇÃO
 ===================================================== */
 
 window.addEventListener(
@@ -828,6 +673,11 @@ window.addEventListener(
         const nome =
             parametros.get("nome");
 
+
+        /*
+           Caso tenha chegado pela URL,
+           mantém os dados do usuário.
+        */
 
         if (idUsuario) {
 
