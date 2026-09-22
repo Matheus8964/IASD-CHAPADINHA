@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
@@ -7,31 +6,30 @@
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1, viewport-fit=cover"
-
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
 <meta name="theme-color" content="#0f172a">
 
-<meta name="mobile-web-app-capable" content="yes">
-
 <meta
-name="apple-mobile-web-app-capable"
-content="yes"
-
+  name="mobile-web-app-capable"
+  content="yes"
 >
 
 <meta
-name="apple-mobile-web-app-status-bar-style"
-content="black-translucent"
-
+  name="apple-mobile-web-app-capable"
+  content="yes"
 >
 
 <meta
-name="apple-mobile-web-app-title"
-content="App RH"
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
 
+<meta
+  name="apple-mobile-web-app-title"
+  content="Escala Distrital"
 >
 
 <link
@@ -44,15 +42,25 @@ content="App RH"
   href="./icons/icon-192.png"
 >
 
-<title>Instalar App RH</title>
+<title>Instalar Escala Distrital</title>
+
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
+
+
+/* =====================================================
+   BASE
+===================================================== */
 
 html,
 body{
@@ -81,12 +89,15 @@ body{
 
 }
 
+
 body{
 
   min-height:100vh;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   padding:
@@ -97,25 +108,36 @@ body{
 
 }
 
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .container{
 
   width:100%;
-  max-width:460px;
+  max-width:480px;
 
 }
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
 
 .logo-area{
 
   text-align:center;
 
-  margin-bottom:24px;
+  margin-bottom:22px;
 
 }
 
+
 .logo{
 
-  width:82px;
-  height:82px;
+  width:84px;
+  height:84px;
 
   margin:auto;
 
@@ -124,6 +146,7 @@ body{
   background:#ffffff;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -132,33 +155,43 @@ body{
 
 }
 
+
 .logo span{
 
-  font-size:30px;
+  font-size:32px;
+
   font-weight:900;
 
   color:#2563eb;
 
 }
 
+
 .logo-area h1{
 
-  margin-top:18px;
+  margin-top:17px;
 
-  font-size:30px;
+  font-size:29px;
+
   font-weight:800;
 
 }
 
+
 .logo-area p{
 
-  margin-top:8px;
+  margin-top:7px;
 
   color:#cbd5e1;
 
-  font-size:15px;
+  font-size:14px;
 
 }
+
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
 
@@ -175,29 +208,314 @@ body{
 
 }
 
-.card h2{
+
+/* =====================================================
+   APRESENTAÇÃO
+===================================================== */
+
+.intro{
 
   text-align:center;
 
-  font-size:21px;
-
-  margin-bottom:8px;
+  margin-bottom:22px;
 
 }
 
-.subtitle{
 
-  text-align:center;
+.intro h2{
+
+  font-size:21px;
+
+  margin-bottom:9px;
+
+}
+
+
+.intro p{
 
   color:#64748b;
 
   font-size:14px;
 
-  line-height:1.5;
-
-  margin-bottom:22px;
+  line-height:1.55;
 
 }
+
+
+/* =====================================================
+   OBJETIVO
+===================================================== */
+
+.info-box{
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:16px;
+
+  padding:16px;
+
+  margin-bottom:18px;
+
+}
+
+
+.info-title{
+
+  font-weight:800;
+
+  font-size:15px;
+
+  margin-bottom:7px;
+
+}
+
+
+.info-text{
+
+  color:#64748b;
+
+  font-size:13px;
+
+  line-height:1.55;
+
+}
+
+
+/* =====================================================
+   ITENS
+===================================================== */
+
+.features{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+  margin-bottom:20px;
+
+}
+
+
+.feature{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:11px;
+
+}
+
+
+.feature-icon{
+
+  min-width:34px;
+
+  width:34px;
+  height:34px;
+
+  border-radius:10px;
+
+  background:#dbeafe;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:17px;
+
+}
+
+
+.feature-text{
+
+  padding-top:2px;
+
+}
+
+
+.feature-title{
+
+  font-size:13px;
+
+  font-weight:800;
+
+  margin-bottom:2px;
+
+}
+
+
+.feature-description{
+
+  font-size:12px;
+
+  line-height:1.4;
+
+  color:#64748b;
+
+}
+
+
+/* =====================================================
+   FUTURO
+===================================================== */
+
+.future{
+
+  background:#eff6ff;
+
+  border:1px solid #bfdbfe;
+
+  border-radius:15px;
+
+  padding:15px;
+
+  margin-bottom:20px;
+
+}
+
+
+.future-title{
+
+  font-size:14px;
+
+  font-weight:800;
+
+  color:#1e40af;
+
+  margin-bottom:6px;
+
+}
+
+
+.future-text{
+
+  color:#475569;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+}
+
+
+/* =====================================================
+   DESENVOLVEDOR
+===================================================== */
+
+.developer{
+
+  text-align:center;
+
+  color:#64748b;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+  margin-bottom:20px;
+
+}
+
+
+.developer strong{
+
+  color:#334155;
+
+}
+
+
+/* =====================================================
+   PRÉ-ACESSO
+===================================================== */
+
+.pre-access{
+
+  width:100%;
+
+  border:none;
+
+  border-radius:15px;
+
+  padding:16px;
+
+  background:#2563eb;
+
+  color:#ffffff;
+
+  font-size:16px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 20px rgba(37,99,235,.30);
+
+  transition:
+    transform .15s,
+    background .15s;
+
+}
+
+
+.pre-access:hover{
+
+  background:#1d4ed8;
+
+}
+
+
+.pre-access:active{
+
+  transform:scale(.98);
+
+}
+
+
+/* =====================================================
+   DIVISOR
+===================================================== */
+
+.divider{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin:23px 0 20px;
+
+  color:#94a3b8;
+
+  font-size:11px;
+
+}
+
+
+.divider::before,
+.divider::after{
+
+  content:"";
+
+  flex:1;
+
+  height:1px;
+
+  background:#e2e8f0;
+
+}
+
+
+/* =====================================================
+   PLATAFORMAS
+===================================================== */
 
 .platform{
 
@@ -205,11 +523,17 @@ body{
 
 }
 
+
 .platform.active{
 
   display:block;
 
 }
+
+
+/* =====================================================
+   BOTÃO INSTALAR
+===================================================== */
 
 .install-button{
 
@@ -240,17 +564,20 @@ body{
 
 }
 
+
 .install-button:active{
 
   transform:scale(.98);
 
 }
 
+
 .install-button:hover{
 
   background:#1d4ed8;
 
 }
+
 
 .install-button:disabled{
 
@@ -261,6 +588,11 @@ body{
   box-shadow:none;
 
 }
+
+
+/* =====================================================
+   BOTÃO SECUNDÁRIO
+===================================================== */
 
 .secondary-button{
 
@@ -286,11 +618,17 @@ body{
 
 }
 
+
+/* =====================================================
+   PASSOS IPHONE
+===================================================== */
+
 .steps{
 
   margin-top:20px;
 
 }
+
 
 .step{
 
@@ -306,15 +644,18 @@ body{
 
 }
 
+
 .step:last-child{
 
   border-bottom:none;
 
 }
 
+
 .step-number{
 
   min-width:32px;
+
   height:32px;
 
   border-radius:50%;
@@ -326,6 +667,7 @@ body{
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
   font-weight:800;
@@ -334,11 +676,13 @@ body{
 
 }
 
+
 .step-content{
 
   flex:1;
 
 }
+
 
 .step-title{
 
@@ -350,6 +694,7 @@ body{
 
 }
 
+
 .step-description{
 
   color:#64748b;
@@ -360,14 +705,17 @@ body{
 
 }
 
+
 .share-icon{
 
   display:inline-flex;
 
   align-items:center;
+
   justify-content:center;
 
   width:28px;
+
   height:28px;
 
   border-radius:8px;
@@ -379,6 +727,11 @@ body{
   vertical-align:middle;
 
 }
+
+
+/* =====================================================
+   AVISO
+===================================================== */
 
 .warning{
 
@@ -400,6 +753,11 @@ body{
 
 }
 
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
 .footer{
 
   text-align:center;
@@ -412,11 +770,17 @@ body{
 
 }
 
+
 .hidden{
 
   display:none !important;
 
 }
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
 
 @media(max-width:380px){
 
@@ -429,6 +793,7 @@ body{
   .logo{
 
     width:70px;
+
     height:70px;
 
   }
@@ -445,123 +810,103 @@ body{
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-  <!-- LOGO -->
+
+  <!-- =================================================
+       CABEÇALHO
+  ================================================== -->
 
   <div class="logo-area">
 
+    <div class="logo">
 
-<div class="logo">
+      <span>ED</span>
 
-  <span>RH</span>
+    </div>
 
-</div>
+    <h1>Escala Distrital</h1>
 
-<h1>App RH</h1>
-
-<p>Sistema de Recursos Humanos</p>
-
+    <p>IASD Chapadinha</p>
 
   </div>
 
-  <!-- CARD -->
+
+
+  <!-- =================================================
+       CARD
+  ================================================== -->
 
   <div class="card">
 
 
-<div id="conteudo">
+    <!-- APRESENTAÇÃO -->
+
+    <div class="intro">
+
+      <h2>Bem-vindo ao projeto</h2>
+
+      <p>
+
+        Uma iniciativa criada para facilitar a organização
+        das escalas e incentivar a participação de cantores
+        e pregadores da igreja local.
+
+      </p>
+
+    </div>
 
 
-  <h2>
 
-    Instale o App RH
+    <!-- OBJETIVO -->
 
-  </h2>
+    <div class="info-box">
 
+      <div class="info-title">
 
-  <p class="subtitle">
+        🎯 Qual é o objetivo?
 
-    Tenha acesso rápido ao sistema diretamente pela tela inicial do seu celular.
+      </div>
 
-  </p>
+      <div class="info-text">
 
+        O projeto foi desenvolvido para ajudar na criação
+        e organização das escalas, permitindo que cantores
+        e pregadores informem suas disponibilidades e
+        tenham mais oportunidades de participar das
+        programações das igrejas do distrito.
 
-  <!-- ANDROID -->
+      </div>
 
-  <div
-    id="android"
-    class="platform"
-  >
-
-    <button
-      id="btnInstalar"
-      class="install-button"
-      type="button"
-      onclick="instalarApp()"
-      disabled
-    >
-
-      📲 PREPARANDO INSTALAÇÃO...
-
-    </button>
+    </div>
 
 
-    <button
-      class="secondary-button"
-      type="button"
-      onclick="entrarSistema()"
-    >
 
-      Entrar pelo navegador
+    <!-- RECURSOS -->
 
-    </button>
-
-  </div>
+    <div class="features">
 
 
-  <!-- IPHONE -->
+      <div class="feature">
 
-  <div
-    id="iphone"
-    class="platform"
-  >
-
-    <button
-      class="install-button"
-      type="button"
-      onclick="mostrarTutorial()"
-    >
-
-      🍎 COMO INSTALAR NO IPHONE
-
-    </button>
-
-
-    <div
-      id="tutorial"
-      class="steps hidden"
-    >
-
-
-      <div class="step">
-
-        <div class="step-number">
-          1
+        <div class="feature-icon">
+          📅
         </div>
 
-        <div class="step-content">
+        <div class="feature-text">
 
-          <div class="step-title">
-            Abra o Safari
+          <div class="feature-title">
+            Disponibilidade
           </div>
 
-          <div class="step-description">
+          <div class="feature-description">
 
-            Acesse o App RH pelo navegador
-            <strong>Safari</strong>.
+            Informe os dias em que você está disponível
+            para cantar ou pregar.
 
           </div>
 
@@ -570,48 +915,23 @@ body{
       </div>
 
 
-      <div class="step">
 
-        <div class="step-number">
-          2
+      <div class="feature">
+
+        <div class="feature-icon">
+          📋
         </div>
 
-        <div class="step-content">
+        <div class="feature-text">
 
-          <div class="step-title">
-            Toque em Compartilhar
+          <div class="feature-title">
+            Organização das escalas
           </div>
 
-          <div class="step-description">
+          <div class="feature-description">
 
-            Na parte inferior do Safari,
-            toque no botão
-            <span class="share-icon">↑</span>
-            <strong>Compartilhar</strong>.
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          3
-        </div>
-
-        <div class="step-content">
-
-          <div class="step-title">
-            Adicionar à Tela de Início
-          </div>
-
-          <div class="step-description">
-
-            Deslize o menu para cima e selecione
-            <strong>Adicionar à Tela de Início</strong>.
+            Facilite a visualização de quem está disponível
+            em cada data.
 
           </div>
 
@@ -620,22 +940,23 @@ body{
       </div>
 
 
-      <div class="step">
 
-        <div class="step-number">
-          4
+      <div class="feature">
+
+        <div class="feature-icon">
+          🤝
         </div>
 
-        <div class="step-content">
+        <div class="feature-text">
 
-          <div class="step-title">
-            Confirme
+          <div class="feature-title">
+            Mais oportunidades
           </div>
 
-          <div class="step-description">
+          <div class="feature-description">
 
-            Toque em <strong>Adicionar</strong>.
-            O ícone do App RH aparecerá na tela inicial.
+            Incentive a participação de cantores e
+            pregadores nas programações locais.
 
           </div>
 
@@ -647,86 +968,335 @@ body{
     </div>
 
 
-    <div class="warning">
 
-      ⚠️ No iPhone, a instalação deve ser feita pelo
-      <strong>Safari</strong>. Outros navegadores podem não mostrar
-      a opção "Adicionar à Tela de Início".
+    <!-- FUTURO -->
+
+    <div class="future">
+
+      <div class="future-title">
+
+        🚀 O projeto pode crescer
+
+      </div>
+
+      <div class="future-text">
+
+        Futuramente, poderemos ter recursos como
+        <strong>ranking de participação</strong>,
+        reconhecimento dos participantes e,
+        quem sabe, até possíveis premiações.
+
+        <br><br>
+
+        Mas isso depende principalmente da participação
+        e do envolvimento de vocês com o projeto.
+
+      </div>
+
+    </div>
+
+
+
+    <!-- DESENVOLVEDOR -->
+
+    <div class="developer">
+
+      Projeto desenvolvido por
+
+      <strong>Matheus Dias</strong>,
+
+      com foco em solucionar um problema real na
+      organização das escalas e incentivar os talentos
+      da igreja local.
 
     </div>
 
 
+
+    <!-- PRÉ-ACESSO -->
+
     <button
-      class="secondary-button"
+      class="pre-access"
       type="button"
-      onclick="entrarSistema()"
+      onclick="fazerPreAcesso()"
     >
 
-      Entrar pelo navegador
+      🚀 FAZER PRÉ-ACESSO
 
     </button>
 
 
-  </div>
 
+    <!-- =================================================
+         DIVISOR
+    ================================================== -->
 
-  <!-- COMPUTADOR -->
+    <div class="divider">
 
-  <div
-    id="computador"
-    class="platform"
-  >
-
-    <button
-      id="btnDesktop"
-      class="install-button"
-      type="button"
-      onclick="instalarApp()"
-      disabled
-    >
-
-      💻 PREPARANDO INSTALAÇÃO...
-
-    </button>
-
-
-    <button
-      class="secondary-button"
-      type="button"
-      onclick="entrarSistema()"
-    >
-
-      Entrar pelo navegador
-
-    </button>
-
-
-    <div class="warning">
-
-      Se o botão de instalação não aparecer,
-      procure o ícone de instalação
-      <strong>⊕</strong>
-      na barra de endereço do navegador.
+      INSTALAÇÃO DO APLICATIVO
 
     </div>
 
+
+
+    <div id="conteudo">
+
+
+      <!-- =================================================
+           ANDROID
+      ================================================== -->
+
+      <div
+        id="android"
+        class="platform"
+      >
+
+        <button
+          id="btnInstalar"
+          class="install-button"
+          type="button"
+          onclick="instalarApp()"
+          disabled
+        >
+
+          📲 PREPARANDO INSTALAÇÃO...
+
+        </button>
+
+
+        <button
+          class="secondary-button"
+          type="button"
+          onclick="entrarSistema()"
+        >
+
+          Entrar pelo navegador
+
+        </button>
+
+      </div>
+
+
+
+      <!-- =================================================
+           IPHONE
+      ================================================== -->
+
+      <div
+        id="iphone"
+        class="platform"
+      >
+
+        <button
+          class="install-button"
+          type="button"
+          onclick="mostrarTutorial()"
+        >
+
+          🍎 COMO INSTALAR NO IPHONE
+
+        </button>
+
+
+        <div
+          id="tutorial"
+          class="steps hidden"
+        >
+
+
+          <div class="step">
+
+            <div class="step-number">
+              1
+            </div>
+
+            <div class="step-content">
+
+              <div class="step-title">
+                Abra o Safari
+              </div>
+
+              <div class="step-description">
+
+                Acesse o Escala Distrital pelo navegador
+                <strong>Safari</strong>.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step">
+
+            <div class="step-number">
+              2
+            </div>
+
+            <div class="step-content">
+
+              <div class="step-title">
+                Toque em Compartilhar
+              </div>
+
+              <div class="step-description">
+
+                Na parte inferior do Safari,
+                toque no botão
+
+                <span class="share-icon">↑</span>
+
+                <strong>Compartilhar</strong>.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step">
+
+            <div class="step-number">
+              3
+            </div>
+
+            <div class="step-content">
+
+              <div class="step-title">
+                Adicionar à Tela de Início
+              </div>
+
+              <div class="step-description">
+
+                Deslize o menu para cima e selecione
+                <strong>Adicionar à Tela de Início</strong>.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step">
+
+            <div class="step-number">
+              4
+            </div>
+
+            <div class="step-content">
+
+              <div class="step-title">
+                Confirme
+              </div>
+
+              <div class="step-description">
+
+                Toque em <strong>Adicionar</strong>.
+
+                O ícone do Escala Distrital aparecerá
+                na tela inicial.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="warning">
+
+          ⚠️ No iPhone, a instalação deve ser feita pelo
+          <strong>Safari</strong>. Outros navegadores podem
+          não mostrar a opção "Adicionar à Tela de Início".
+
+        </div>
+
+
+        <button
+          class="secondary-button"
+          type="button"
+          onclick="entrarSistema()"
+        >
+
+          Entrar pelo navegador
+
+        </button>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           COMPUTADOR
+      ================================================== -->
+
+      <div
+        id="computador"
+        class="platform"
+      >
+
+        <button
+          id="btnDesktop"
+          class="install-button"
+          type="button"
+          onclick="instalarApp()"
+          disabled
+        >
+
+          💻 PREPARANDO INSTALAÇÃO...
+
+        </button>
+
+
+        <button
+          class="secondary-button"
+          type="button"
+          onclick="entrarSistema()"
+        >
+
+          Entrar pelo navegador
+
+        </button>
+
+
+        <div class="warning">
+
+          Se o botão de instalação não aparecer,
+          procure o ícone de instalação
+          <strong>⊕</strong>
+          na barra de endereço do navegador.
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
   </div>
 
-
-</div>
-
-
-  </div>
 
   <div class="footer">
 
-
-App RH • Sistema de Recursos Humanos
-
+    Escala Distrital • IASD Chapadinha
 
   </div>
 
+
 </div>
+
+
 
 <script>
 
@@ -739,31 +1309,53 @@ const URL_HOME = "./index.html";
 
 
 /* =====================================================
-   VARIÁVEL DO EVENTO DE INSTALAÇÃO
+   EVENTO DE INSTALAÇÃO
 ===================================================== */
 
 let eventoInstalacao = null;
 
 
 /* =====================================================
-   IR PARA INDEX
+   PRÉ-ACESSO
 ===================================================== */
 
-function entrarSistema(){
+function fazerPreAcesso(){
 
-  window.location.replace("./index.html");
+  /*
+    O pré-acesso leva o usuário para a tela
+    principal/login do sistema.
+
+    O aplicativo continua podendo ser instalado
+    normalmente antes disso.
+  */
+
+  window.location.href = URL_HOME;
 
 }
 
 
 /* =====================================================
-   VERIFICAR SE O APP JÁ ESTÁ INSTALADO
+   ENTRAR PELO NAVEGADOR
+===================================================== */
+
+function entrarSistema(){
+
+  window.location.replace(
+    "./index.html"
+  );
+
+}
+
+
+/* =====================================================
+   VERIFICAR SE JÁ ESTÁ INSTALADO
 ===================================================== */
 
 function appJaInstalado(){
 
+
   /*
-    Android / Chrome / Edge / outros navegadores
+    Android / Chrome / Edge / outros
   */
 
   const standalone =
@@ -780,18 +1372,13 @@ function appJaInstalado(){
     window.navigator.standalone === true;
 
 
-  /*
-    Se qualquer uma das condições for verdadeira,
-    o usuário já está dentro do aplicativo instalado.
-  */
-
   return standalone || iosStandalone;
 
 }
 
 
 /* =====================================================
-   REGISTRAR SERVICE WORKER
+   SERVICE WORKER
 ===================================================== */
 
 function registrarServiceWorker(){
@@ -809,6 +1396,7 @@ function registrarServiceWorker(){
 
   navigator.serviceWorker
     .register("./sw.js")
+
     .then(function(registration){
 
       console.log(
@@ -817,6 +1405,7 @@ function registrarServiceWorker(){
       );
 
     })
+
     .catch(function(error){
 
       console.error(
@@ -835,18 +1424,19 @@ function registrarServiceWorker(){
 
 function detectarSistema(){
 
-  /*
-    PRIMEIRO:
-    verifica se já está instalado.
 
-    Se estiver, NÃO mostra nenhuma mensagem.
-    Vai diretamente para index.html.
+  /*
+    SE JÁ ESTÁ INSTALADO
+
+    Não mostra mensagem.
+
+    Vai direto para index.html.
   */
 
   if(appJaInstalado()){
 
     console.log(
-      "App RH já está instalado."
+      "Aplicativo já está instalado."
     );
 
     window.location.replace(
@@ -915,7 +1505,7 @@ function detectarSistema(){
 
 
 /* =====================================================
-   EVENTO beforeinstallprompt
+   BEFORE INSTALL PROMPT
 ===================================================== */
 
 window.addEventListener(
@@ -928,8 +1518,8 @@ window.addEventListener(
 
 
     /*
-      Impede o navegador de abrir
-      automaticamente o aviso.
+      Impede o navegador de mostrar
+      o aviso automaticamente.
     */
 
     event.preventDefault();
@@ -943,7 +1533,7 @@ window.addEventListener(
 
 
     /*
-      Botão Android
+      Android
     */
 
     const botaoAndroid =
@@ -953,7 +1543,7 @@ window.addEventListener(
 
 
     /*
-      Botão computador
+      Computador
     */
 
     const botaoDesktop =
@@ -991,9 +1581,10 @@ window.addEventListener(
 
 async function instalarApp(){
 
+
   /*
-    Se o navegador não forneceu
-    o evento de instalação.
+    Se o navegador ainda não disponibilizou
+    o evento, não tenta abrir instalação falsa.
   */
 
   if(!eventoInstalacao){
@@ -1009,16 +1600,16 @@ async function instalarApp(){
 
   try{
 
+
     /*
-      Abre o diálogo nativo
-      de instalação.
+      Abre o diálogo nativo.
     */
 
     eventoInstalacao.prompt();
 
 
     /*
-      Aguarda a escolha do usuário.
+      Aguarda a resposta.
     */
 
     const resultado =
@@ -1026,7 +1617,7 @@ async function instalarApp(){
 
 
     console.log(
-      "Resultado:",
+      "Resultado da instalação:",
       resultado
     );
 
@@ -1039,8 +1630,8 @@ async function instalarApp(){
 
 
     /*
-      Se aceitou, o evento appinstalled
-      será disparado pelo navegador.
+      Se o usuário aceitou,
+      o navegador disparará appinstalled.
     */
 
     if(
@@ -1053,6 +1644,7 @@ async function instalarApp(){
       );
 
     }
+
 
   }catch(error){
 
@@ -1101,7 +1693,7 @@ window.addEventListener(
   function(){
 
     console.log(
-      "App RH instalado com sucesso."
+      "Aplicativo instalado com sucesso."
     );
 
 
@@ -1109,7 +1701,7 @@ window.addEventListener(
 
 
     /*
-      NÃO mostra "App instalado".
+      Não mostra "App instalado".
 
       Vai diretamente para index.html.
     */
@@ -1130,16 +1722,16 @@ document.addEventListener(
   "DOMContentLoaded",
   function(){
 
+
     /*
-      Registra o Service Worker.
+      Primeiro registra o Service Worker.
     */
 
     registrarServiceWorker();
 
 
     /*
-      Verifica se já está instalado
-      e identifica o dispositivo.
+      Depois identifica o dispositivo.
     */
 
     detectarSistema();
@@ -1157,8 +1749,9 @@ window.addEventListener(
   function(){
 
     /*
-      Caso a página seja aberta novamente
-      já estando em modo aplicativo.
+      Se a página for aberta dentro
+      do aplicativo instalado,
+      entra diretamente no sistema.
     */
 
     if(appJaInstalado()){
@@ -1173,6 +1766,7 @@ window.addEventListener(
 );
 
 </script>
+
 
 </body>
 
