@@ -8,15 +8,12 @@
 <meta
     name="viewport"
     content="width=device-width,
-             initial-scale=1,
-             maximum-scale=1,
-             viewport-fit=cover"
+             initial-scale=1.0,
+             maximum-scale=1.0,
+             user-scalable=no"
 >
 
-<meta name="theme-color" content="#0f172a">
-
 <title>Espaço para Criar Escalas</title>
-
 
 <style>
 
@@ -26,134 +23,205 @@
 
 * {
 
-    box-sizing: border-box;
-
-}
-
-
-html,
-body {
-
     margin: 0;
-
     padding: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    overflow: hidden;
+    box-sizing: border-box;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    background: #f1f5f9;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url(
+            "https://images.unsplash.com/photo-1457459686225-c7db79d4e59f?q=80&w=1600&auto=format&fit=crop"
+        );
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    color: white;
 
 }
 
 
 /* =====================================================
-   CABEÇALHO
+   HEADER
 ===================================================== */
 
-.header {
+header {
 
-    position: fixed;
+    width: 100%;
 
-    top: 0;
-
-    left: 0;
-
-    right: 0;
-
-    height: 58px;
-
-    background: #0f172a;
-
-    color: white;
+    padding:
+        18px 25px;
 
     display: flex;
 
+    justify-content:
+        space-between;
+
     align-items: center;
-
-    padding: 0 14px;
-
-    gap: 12px;
-
-    z-index: 1000;
-
-}
-
-
-.btn-voltar {
-
-    width: 42px;
-
-    height: 42px;
-
-    border: 0;
-
-    border-radius: 12px;
 
     background:
-        rgba(255,255,255,0.12);
+        rgba(255,255,255,.08);
 
-    color: white;
+    backdrop-filter:
+        blur(15px);
 
-    font-size: 23px;
+    -webkit-backdrop-filter:
+        blur(15px);
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color:
-        transparent;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
 
 }
 
 
-.btn-voltar:active {
+.logo h2 {
 
-    transform:
-        scale(.94);
+    font-size:
+        21px;
+
+    font-weight:
+        700;
 
 }
 
+
+.logo span {
+
+    color:
+        #ddd;
+
+    font-size:
+        12px;
+
+}
+
+
+.usuario {
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    text-align:
+        right;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width:
+        100%;
+
+    max-width:
+        700px;
+
+    margin:
+        0 auto;
+
+    padding:
+        30px 15px;
+
+}
+
+
+/* =====================================================
+   CARD PRINCIPAL
+===================================================== */
+
+.card {
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius:
+        20px;
+
+    padding:
+        25px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.25);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
 
 .titulo {
 
-    font-size: 18px;
+    text-align:
+        center;
 
-    font-weight: 700;
+    margin-bottom:
+        25px;
 
 }
 
 
-/* =====================================================
-   ÁREA PRINCIPAL
-===================================================== */
+.titulo h1 {
 
-.conteudo {
+    font-size:
+        25px;
 
-    position: absolute;
+    margin-bottom:
+        8px;
 
-    top: 58px;
+}
 
-    left: 0;
 
-    right: 0;
+.titulo p {
 
-    bottom: 68px;
+    color:
+        #ddd;
 
-    overflow-y: auto;
+    font-size:
+        13px;
 
-    padding: 18px 14px 20px;
+    line-height:
+        1.5;
 
 }
 
@@ -162,161 +230,156 @@ body {
    WEBVIEW
 ===================================================== */
 
+.webviewContainer {
+
+    width:
+        100%;
+
+    margin-top:
+        10px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(0,0,0,.15);
+
+}
+
+
 .webview {
 
-    width: 100%;
+    display:
+        block;
 
-    height: 420px;
+    width:
+        100%;
 
-    min-height: 320px;
+    min-height:
+        560px;
 
-    border: 0;
+    border:
+        none;
 
-    border-radius: 16px;
-
-    display: block;
-
-    background: white;
-
-    box-shadow:
-        0 3px 12px
-        rgba(15,23,42,.08);
-
-}
-
-
-/* =====================================================
-   ÁREA DE ACESSO LIBERADO
-===================================================== */
-
-#acessoLiberado {
-
-    display: none;
-
-    margin-top: 14px;
-
-}
-
-
-.acesso-card {
-
-    width: 100%;
-
-    background: white;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 16px;
-
-    padding: 17px;
-
-    box-shadow:
-        0 3px 12px
-        rgba(15,23,42,.08);
-
-}
-
-
-.acesso-titulo {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.acesso-icone {
-
-    width: 48px;
-
-    height: 48px;
-
-    border-radius: 14px;
-
-    background: #dcfce7;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 25px;
-
-    flex-shrink: 0;
-
-}
-
-
-.acesso-texto {
-
-    flex: 1;
-
-}
-
-
-.acesso-texto h3 {
-
-    margin: 0;
-
-    color: #0f172a;
-
-    font-size: 17px;
-
-}
-
-
-.acesso-texto p {
-
-    margin: 4px 0 0;
-
-    color: #64748b;
-
-    font-size: 12px;
-
-    line-height: 1.4;
-
-}
-
-
-/* =====================================================
-   BOTÃO ACESSAR
-===================================================== */
-
-.btn-acessar {
-
-    width: 100%;
-
-    border: 0;
-
-    border-radius: 13px;
-
-    padding: 15px;
-
-    margin-top: 8px;
-
-    background: #0f172a;
-
-    color: white;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color:
+    background:
         transparent;
 
 }
 
 
-.btn-acessar:active {
+/* =====================================================
+   ACESSO LIBERADO
+===================================================== */
+
+#acessoLiberado {
+
+    display:
+        none;
+
+    margin-top:
+        20px;
+
+    padding:
+        20px;
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(30,120,70,.20);
+
+    border:
+        1px solid
+        rgba(80,255,150,.35);
+
+    text-align:
+        center;
+
+}
+
+
+#acessoLiberado strong {
+
+    display:
+        block;
+
+    font-size:
+        17px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+#acessoLiberado p {
+
+    color:
+        #ddd;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btnCriarEscala {
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    padding:
+        14px;
+
+    background:
+        white;
+
+    color:
+        #222;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.btnCriarEscala:hover {
+
+    background:
+        #eeeeee;
+
+}
+
+
+.btnCriarEscala:active {
 
     transform:
         scale(.98);
@@ -325,131 +388,22 @@ body {
 
 
 /* =====================================================
-   MENSAGEM DE BLOQUEIO
+   STATUS
 ===================================================== */
 
-#mensagemBloqueado {
+.statusGitHub {
 
-    display: none;
+    margin-top:
+        15px;
 
-    margin-top: 14px;
+    text-align:
+        center;
 
-}
+    font-size:
+        12px;
 
-
-.bloqueado-card {
-
-    background: white;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 16px;
-
-    padding: 16px;
-
-    color: #64748b;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    text-align: center;
-
-}
-
-
-/* =====================================================
-   BARRA INFERIOR
-===================================================== */
-
-.bottom-nav {
-
-    position: fixed;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    height: 68px;
-
-    background: #0f172a;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-around;
-
-    z-index: 2000;
-
-    padding-bottom:
-        env(safe-area-inset-bottom);
-
-    box-shadow:
-        0 -3px 12px
-        rgba(0,0,0,.18);
-
-}
-
-
-/* =====================================================
-   BOTÕES DO MENU
-===================================================== */
-
-.nav-item {
-
-    flex: 1;
-
-    height: 100%;
-
-    border: 0;
-
-    background: transparent;
-
-    color: #94a3b8;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 3px;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-}
-
-
-.nav-item .icone-nav {
-
-    font-size: 23px;
-
-    line-height: 1;
-
-}
-
-
-.nav-item.ativo {
-
-    color: white;
-
-}
-
-
-.nav-item:active {
-
-    transform:
-        scale(.94);
+    color:
+        #ddd;
 
 }
 
@@ -458,40 +412,68 @@ body {
    RESPONSIVO
 ===================================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
-    .titulo {
+    header {
 
-        font-size: 17px;
+        padding:
+            15px 18px;
 
     }
 
 
-    .conteudo {
+    .logo h2 {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .logo span {
+
+        display:
+            none;
+
+    }
+
+
+    .usuario {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .container {
 
         padding:
-            14px 12px 20px;
+            20px 10px;
+
+    }
+
+
+    .card {
+
+        padding:
+            18px;
+
+    }
+
+
+    .titulo h1 {
+
+        font-size:
+            23px;
 
     }
 
 
     .webview {
 
-        height: 430px;
-
-    }
-
-
-    .nav-item {
-
-        font-size: 10px;
-
-    }
-
-
-    .nav-item .icone-nav {
-
-        font-size: 22px;
+        min-height:
+            600px;
 
     }
 
@@ -506,25 +488,30 @@ body {
 
 
 <!-- =====================================================
-     CABEÇALHO
+     HEADER
 ===================================================== -->
 
-<header class="header">
+<header>
 
-    <button
-        class="btn-voltar"
-        onclick="irParaHome()"
-        aria-label="Voltar"
+    <div class="logo">
+
+        <h2>
+            Escala Distrital
+        </h2>
+
+        <span>
+            IASD Chapadinha
+        </span>
+
+    </div>
+
+
+    <div
+        class="usuario"
+        id="usuarioNome"
     >
 
-        ←
-
-    </button>
-
-
-    <div class="titulo">
-
-        Espaço para Criar Escalas
+        Carregando...
 
     </div>
 
@@ -536,276 +523,144 @@ body {
      CONTEÚDO
 ===================================================== -->
 
-<main class="conteudo">
+<main class="container">
+
+    <div class="card">
 
 
-    <!-- =================================================
-         APP SCRIPT
-    ================================================== -->
+        <div class="titulo">
 
-    <iframe
+            <h1>
+                📋 Espaço para Criar Escalas
+            </h1>
 
-        id="webviewEscala"
+            <p>
+                Área destinada aos usuários
+                autorizados a criar as escalas
+                do distrito.
+            </p>
 
-        class="webview"
-
-        src="https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec?page=liberarescala"
-
-        allow="clipboard-read; clipboard-write"
-
-        loading="eager"
-
-    ></iframe>
+        </div>
 
 
 
-    <!-- =================================================
-         ACESSO LIBERADO
-    ================================================== -->
+        <!-- =================================================
+             APPS SCRIPT
+        ================================================== -->
 
-    <div
-        id="acessoLiberado"
-    >
+        <div class="webviewContainer">
 
-        <div class="acesso-card">
+            <iframe
+                id="webviewEscala"
+                class="webview"
+                allow="clipboard-read; clipboard-write"
+                loading="eager"
+            ></iframe>
 
-
-            <div class="acesso-titulo">
-
-
-                <div class="acesso-icone">
-
-                    🔓
-
-                </div>
+        </div>
 
 
-                <div class="acesso-texto">
 
-                    <h3>
+        <!-- =================================================
+             ACESSO LIBERADO
+        ================================================== -->
 
-                        Acesso liberado
+        <div id="acessoLiberado">
 
-                    </h3>
+            <strong>
+                ✅ Acesso liberado
+            </strong>
 
-
-                    <p>
-
-                        Seu usuário está autorizado
-                        para as funções de desenvolvimento
-                        de escalas.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
+            <p>
+                Seu usuário está autorizado.
+                Agora você pode acessar as
+                funções de criação de escalas.
+            </p>
 
 
             <button
-
                 type="button"
-
-                class="btn-acessar"
-
+                class="btnCriarEscala"
                 onclick="acessarFuncoesDesenvolvedor()"
-
             >
 
-                Acessar funções de desenvolvimento
-                de escalas
+                📋 Acessar funções de criação
 
             </button>
 
+        </div>
+
+
+
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <div
+            id="statusGitHub"
+            class="statusGitHub"
+        >
+
+            🔄 Verificando autorização...
 
         </div>
 
-    </div>
-
-
-
-    <!-- =================================================
-         BLOQUEADO
-    ================================================== -->
-
-    <div
-        id="mensagemBloqueado"
-    >
-
-        <div class="bloqueado-card">
-
-            🔒
-
-            <br>
-
-            Seu usuário ainda não possui
-            autorização para acessar as
-            funções de desenvolvimento
-            de escalas.
-
-        </div>
 
     </div>
-
 
 </main>
-
-
-
-<!-- =====================================================
-     MENU INFERIOR
-===================================================== -->
-
-<nav class="bottom-nav">
-
-
-    <!-- INÍCIO -->
-
-    <button
-
-        class="nav-item"
-
-        onclick="irParaHome()"
-
-    >
-
-        <span class="icone-nav">
-
-            🏠
-
-        </span>
-
-        <span>
-
-            Início
-
-        </span>
-
-    </button>
-
-
-
-    <!-- DISPONIBILIDADE -->
-
-    <button
-
-        class="nav-item"
-
-        onclick="irParaDisponibilidade()"
-
-    >
-
-        <span class="icone-nav">
-
-            📅
-
-        </span>
-
-        <span>
-
-            Disponibilidade
-
-        </span>
-
-    </button>
-
-
-
-    <!-- SOLICITAÇÕES -->
-
-    <button
-
-        class="nav-item"
-
-        onclick="irParaSolicitacoes()"
-
-    >
-
-        <span class="icone-nav">
-
-            📩
-
-        </span>
-
-        <span>
-
-            Solicitações
-
-        </span>
-
-    </button>
-
-
-
-    <!-- MENU -->
-
-    <button
-
-        class="nav-item ativo"
-
-        onclick="irParaHome()"
-
-    >
-
-        <span class="icone-nav">
-
-            ☰
-
-        </span>
-
-        <span>
-
-            Menu
-
-        </span>
-
-    </button>
-
-
-</nav>
 
 
 
 <script>
 
 /* =====================================================
-   USUÁRIO
+   CONFIGURAÇÃO
 ===================================================== */
 
-function obterDadosUsuario() {
+const URL_APPS_SCRIPT =
+    "https://script.google.com/a/*/macros/s/AKfycbzJh49CVpD4cApIFxo8B-3th3LSAAl6E-i3OEAERwMUwdyjTsjJ5lamwE2iDTSvkowF/exec";
 
-    const idUsuario =
-        localStorage.getItem(
-            "usuarioId"
-        ) || "";
-
-
-    const nome =
-        localStorage.getItem(
-            "nomeUsuario"
-        ) || "";
-
-
-    return {
-
-        idUsuario:
-            idUsuario,
-
-        nome:
-            nome
-
-    };
-
-}
+const ORIGEM_APPS_SCRIPT =
+    "https://script.google.com";
 
 
 /* =====================================================
-   SALVAR USUÁRIO RECEBIDO PELA URL
+   USUÁRIO
 ===================================================== */
 
-function carregarUsuarioDaURL() {
+let usuario = {
+
+    idUsuario:
+        "",
+
+    nome:
+        ""
+
+};
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        carregarUsuario();
+
+        prepararIframe();
+
+    }
+);
+
+
+/* =====================================================
+   CARREGAR USUÁRIO
+===================================================== */
+
+function carregarUsuario() {
 
     const parametros =
         new URLSearchParams(
@@ -813,169 +668,146 @@ function carregarUsuarioDaURL() {
         );
 
 
-    const idUsuario =
+    /*
+     * Primeiro tenta os dados enviados
+     * pelo login.
+     */
+
+    const idURL =
         parametros.get(
             "idUsuario"
         );
 
 
-    const nome =
+    const nomeURL =
         parametros.get(
             "nome"
         );
 
 
-    if (idUsuario) {
+    /*
+     * Se vieram pela URL,
+     * salva no GitHub.
+     */
+
+    if (idURL) {
 
         localStorage.setItem(
             "usuarioId",
-            idUsuario
+            idURL
         );
+
+        usuario.idUsuario =
+            idURL;
 
     }
 
 
-    if (nome) {
+    if (nomeURL) {
 
         localStorage.setItem(
             "nomeUsuario",
-            nome
+            nomeURL
         );
+
+        usuario.nome =
+            nomeURL;
 
     }
-
-}
-
-
-/* =====================================================
-   MONTAR URL
-===================================================== */
-
-function montarUrl(pagina) {
-
-    const usuario =
-        obterDadosUsuario();
-
-
-    let url =
-        "./" + pagina;
-
-
-    const parametros = [];
-
-
-    if (usuario.idUsuario) {
-
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(
-                usuario.idUsuario
-            )
-        );
-
-    }
-
-
-    if (usuario.nome) {
-
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(
-                usuario.nome
-            )
-        );
-
-    }
-
-
-    if (
-        parametros.length > 0
-    ) {
-
-        url +=
-            "?" +
-            parametros.join("&");
-
-    }
-
-
-    return url;
-
-}
-
-
-/* =====================================================
-   HOME
-===================================================== */
-
-function irParaHome() {
-
-    window.location.href =
-        montarUrl(
-            "home.html"
-        );
-
-}
-
-
-/* =====================================================
-   DISPONIBILIDADE
-===================================================== */
-
-function irParaDisponibilidade() {
-
-    window.location.href =
-        montarUrl(
-            "disponibilidade.html"
-        );
-
-}
-
-
-/* =====================================================
-   SOLICITAÇÕES
-===================================================== */
-
-function irParaSolicitacoes() {
-
-    window.location.href =
-        montarUrl(
-            "solicitacoes.html"
-        );
-
-}
-
-
-/* =====================================================
-   ACESSAR FUNÇÕES
-===================================================== */
-
-function acessarFuncoesDesenvolvedor() {
-
-    const usuario =
-        obterDadosUsuario();
 
 
     /*
-     * A página de destino
-     * também deve verificar
-     * a autorização no servidor.
+     * Se não vieram pela URL,
+     * tenta localStorage.
      */
 
-    let url =
-        "./criarEscala.html";
+    if (!usuario.idUsuario) {
+
+        usuario.idUsuario =
+            localStorage.getItem(
+                "usuarioId"
+            ) || "";
+
+    }
 
 
-    const parametros = [];
+    if (!usuario.nome) {
+
+        usuario.nome =
+            localStorage.getItem(
+                "nomeUsuario"
+            ) || "";
+
+    }
+
+
+    /*
+     * Mostrar nome.
+     */
+
+    const elemento =
+        document.getElementById(
+            "usuarioNome"
+        );
+
+
+    if (elemento) {
+
+        elemento.innerText =
+            usuario.nome
+                ? "👤 " + usuario.nome
+                : "👤 Usuário";
+
+    }
+
+
+    console.log(
+        "Usuário no GitHub:",
+        usuario
+    );
+
+}
+
+
+/* =====================================================
+   PREPARAR IFRAME
+===================================================== */
+
+function prepararIframe() {
+
+    const iframe =
+        document.getElementById(
+            "webviewEscala"
+        );
+
+
+    if (!iframe) {
+
+        return;
+
+    }
+
+
+    /*
+     * IMPORTANTE:
+     *
+     * O Apps Script não consegue acessar
+     * o localStorage do GitHub porque são
+     * origens diferentes.
+     *
+     * Por isso enviamos o ID e o nome
+     * diretamente na URL.
+     */
+
+    const parametros =
+        new URLSearchParams();
 
 
     if (usuario.idUsuario) {
 
-        parametros.push(
-            "idUsuario=" +
-            encodeURIComponent(
-                usuario.idUsuario
-            )
+        parametros.set(
+            "idUsuario",
+            usuario.idUsuario
         );
 
     }
@@ -983,50 +815,76 @@ function acessarFuncoesDesenvolvedor() {
 
     if (usuario.nome) {
 
-        parametros.push(
-            "nome=" +
-            encodeURIComponent(
-                usuario.nome
-            )
+        parametros.set(
+            "nome",
+            usuario.nome
         );
 
     }
 
 
-    if (
-        parametros.length > 0
-    ) {
+    const url =
+        URL_APPS_SCRIPT +
+        "?page=criarEscala" +
+        (
+            parametros.toString()
+                ? "&" + parametros.toString()
+                : ""
+        );
 
-        url +=
-            "?" +
-            parametros.join("&");
 
-    }
+    console.log(
+        "Abrindo Apps Script:",
+        url
+    );
 
 
-    window.location.href =
+    iframe.src =
         url;
 
 }
 
 
 /* =====================================================
-   RECEBER STATUS DO APP SCRIPT
+   RECEBER MENSAGEM DO APPS SCRIPT
 ===================================================== */
 
 window.addEventListener(
-
     "message",
-
     function(event) {
+
+        console.log(
+            "Mensagem recebida:",
+            event.origin,
+            event.data
+        );
 
 
         /*
-         * Ignora mensagens sem conteúdo.
+         * Aceita somente mensagens
+         * vindas do Apps Script.
          */
 
         if (
-            !event.data
+            event.origin !==
+            "https://script.google.com"
+        ) {
+
+            return;
+
+        }
+
+
+        if (!event.data) {
+
+            return;
+
+        }
+
+
+        if (
+            event.data.tipo !==
+            "STATUS_ACESSO_ESCALA"
         ) {
 
             return;
@@ -1035,14 +893,23 @@ window.addEventListener(
 
 
         /*
-         * Só processa mensagens
-         * do nosso sistema.
+         * Confirma o usuário.
          */
 
         if (
-            event.data.tipo !==
-            "STATUS_ACESSO_ESCALA"
+            usuario.idUsuario &&
+            event.data.idUsuario &&
+            String(
+                event.data.idUsuario
+            ) !==
+            String(
+                usuario.idUsuario
+            )
         ) {
+
+            console.warn(
+                "Mensagem ignorada: usuário diferente."
+            );
 
             return;
 
@@ -1056,15 +923,11 @@ window.addEventListener(
             ).toLowerCase();
 
 
-        console.log(
-            "Status recebido do Apps Script:",
-            status
-        );
-
-
-        /* =============================================
-           UNBLOCK
-        ============================================== */
+        /*
+         * =========================================
+         * LIBERADO
+         * =========================================
+         */
 
         if (
             status ===
@@ -1078,9 +941,11 @@ window.addEventListener(
         }
 
 
-        /* =============================================
-           BLOCK
-        ============================================== */
+        /*
+         * =========================================
+         * BLOQUEADO
+         * =========================================
+         */
 
         if (
             status ===
@@ -1094,7 +959,6 @@ window.addEventListener(
         }
 
     }
-
 );
 
 
@@ -1104,102 +968,131 @@ window.addEventListener(
 
 function mostrarAcessoLiberado() {
 
-    const liberado =
+    const area =
         document.getElementById(
             "acessoLiberado"
         );
 
 
-    const bloqueado =
+    const status =
         document.getElementById(
-            "mensagemBloqueado"
+            "statusGitHub"
         );
 
 
-    if (liberado) {
+    if (area) {
 
-        liberado.style.display =
+        area.style.display =
             "block";
 
     }
 
 
-    if (bloqueado) {
+    if (status) {
 
-        bloqueado.style.display =
-            "none";
+        status.innerText =
+            "✅ Autorização confirmada.";
 
     }
+
+
+    console.log(
+        "GITHUB: ACESSO LIBERADO"
+    );
 
 }
 
 
 /* =====================================================
-   MOSTRAR BLOQUEADO
+   MOSTRAR ACESSO BLOQUEADO
 ===================================================== */
 
 function mostrarAcessoBloqueado() {
 
-    const liberado =
+    const area =
         document.getElementById(
             "acessoLiberado"
         );
 
 
-    const bloqueado =
+    const status =
         document.getElementById(
-            "mensagemBloqueado"
+            "statusGitHub"
         );
 
 
-    if (liberado) {
+    if (area) {
 
-        liberado.style.display =
+        area.style.display =
             "none";
 
     }
 
 
-    if (bloqueado) {
+    if (status) {
 
-        bloqueado.style.display =
-            "block";
+        status.innerText =
+            "🔒 Usuário sem autorização para criar escalas.";
 
     }
+
+
+    console.log(
+        "GITHUB: ACESSO BLOQUEADO"
+    );
 
 }
 
 
 /* =====================================================
-   INICIALIZAÇÃO
+   ACESSAR FUNÇÕES DE DESENVOLVEDOR
 ===================================================== */
 
-window.addEventListener(
+function acessarFuncoesDesenvolvedor() {
 
-    "load",
-
-    function() {
-
-        /*
-         * Primeiro salva os dados
-         * recebidos pela URL.
-         */
-
-        carregarUsuarioDaURL();
+    const parametros =
+        new URLSearchParams();
 
 
-        /*
-         * Inicialmente fica bloqueado.
-         *
-         * Só será liberado depois que
-         * o Apps Script enviar "unblock".
-         */
+    if (usuario.idUsuario) {
 
-        mostrarAcessoBloqueado();
+        parametros.set(
+            "idUsuario",
+            usuario.idUsuario
+        );
 
     }
 
-);
+
+    if (usuario.nome) {
+
+        parametros.set(
+            "nome",
+            usuario.nome
+        );
+
+    }
+
+
+    const url =
+        "./criarEscalaFuncoes.html" +
+        (
+            parametros.toString()
+                ? "?" + parametros.toString()
+                : ""
+        );
+
+
+    console.log(
+        "Abrindo funções de criação:",
+        url
+    );
+
+
+    window.location.href =
+        url;
+
+}
 
 </script>
 
